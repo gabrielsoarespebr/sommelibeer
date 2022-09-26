@@ -1,0 +1,80 @@
+:root {
+    --orange: #F9874E;
+    --blue: #373A87;
+    --black: #34495E;
+    --lightgray: #edeae9;
+    --darkgray: #8B8988;
+    --font-Khand: 'Khand', sans-serif
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: var(--font-Khand);
+}
+
+.menu-bg {
+    background-color: var(--blue);
+    height: 12vh;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.menu__logo a {
+    text-decoration: none;
+    display: flex;
+    margin-left: 1.2vw;
+}
+
+.logotipo-text {
+    font-size: x-large;
+    font-weight: 500;
+    color: white;
+    -webkit-text-stroke: 1px var(--black);
+    padding: 1.5vh 0 0 1vh;
+}
+
+.logotipo-image {
+    height: 11vh;
+}
+
+.orange-text {
+    color: var(--orange);
+}
+
+#search-bar, #search-bar:active, #search-bar:hover {
+    background-color: var(--lightgray);
+    color: var(--darkgray);
+    font-family: var(--font-Khand);
+    font-weight: 500;
+    border-radius: 10px;
+    font-size: 13px;
+    padding: 6px;
+    width: 300px;
+    margin: 1vh 0 0 20vw;
+    border-style: none;
+}
+
+.fa-magnifying-glass{
+    color: var(--darkgray);
+    margin-left: -5vw;
+    width: 5px;
+    height: 5px;
+    cursor: pointer;
+}
+
+.menu-login{
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    margin-right: 3vw;
+    padding-top: 4px;
+}
