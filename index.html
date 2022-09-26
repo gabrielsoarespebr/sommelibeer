@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sommelibeer</title>
-    <link rel="shortcut icon" href="/sommelibeer/images/icons8-cheers-32.png">
+    <link rel="shortcut icon" href="/images/cheers16.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/sommelibeer/style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -18,14 +18,14 @@
         <div class="menu-bg">
             <div class="menu">
                 <div class="menu__logo">
-                    <a href="/sommelibeer/index.html">
-                        <img class="logotipo logotipo-image" src="/sommelibeer/images/icons8-cheers-100.png" alt="logo">
+                    <a href="/index.html">
+                        <img class="logotipo logotipo-image" src="/images/cheers64.png" alt="logo">
                         <div class="logotipo logotipo-text">sommeli<span class="orange-text">beer</span></div>
                     </a>
                 </div> <!-- .menu__logo -->
                 <form class="menu__search-bar" action="#" method="GET">
                     <input type="text" name="search" id="search-bar" placeholder="Procurando algo específico?">
-                    <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button for="search" class="search-button" type="submit"></button><i id="search" class="fa-solid fa-magnifying-glass"></i>
                 </form> <!-- .menu__searchbar -->
                 <a class="menu-login" href="#">Entrar</a>
             </div> <!-- .menu -->
@@ -64,6 +64,11 @@
                 </select>
             </div> <!-- .filter-section -->
         </div> <!-- .container-row -->
+        <div class="card-wrapper">
+            <div class="card-item">
+
+            </div>
+        </div> <!-- .card-wrapper -->
     </header>
 
     <!-- SCRITPS -->

@@ -1,11 +1,15 @@
+/* VARIÁVEIS */
+
 :root {
     --orange: #F9874E;
     --blue: #373A87;
-    --black: #34495E;
+    --black: #141D34;
     --lightgray: #edeae9;
     --darkgray: #8B8988;
     --font-Khand: 'Khand', sans-serif
 }
+
+/* GERAL */
 
 * {
     margin: 0;
@@ -16,9 +20,10 @@ body{
     font-family: var(--font-Khand);
 }
 
+/* MENU */
 .menu-bg {
     background-color: var(--blue);
-    height: 12vh;
+    height: 6rem;
 }
 
 .menu{
@@ -34,16 +39,18 @@ body{
     margin-left: 1.2vw;
 }
 
-.logotipo-text {
-    font-size: x-large;
-    font-weight: 500;
-    color: white;
-    -webkit-text-stroke: 1px var(--black);
-    padding: 1.5vh 0 0 1vh;
+.logotipo-image {
+    height: 5rem;
+    filter:drop-shadow(.05rem .05rem .08rem #141D34);
 }
 
-.logotipo-image {
-    height: 11vh;
+.logotipo-text {
+    font-size: 4rem;
+    font-weight: 500;
+    color: white;
+    -webkit-text-stroke: 0.1rem var(--black);
+    text-shadow: .1rem .1rem .2rem #141D34;
+    margin-left: 1rem;
 }
 
 .orange-text {
@@ -56,25 +63,43 @@ body{
     font-family: var(--font-Khand);
     font-weight: 500;
     border-radius: 10px;
-    font-size: 13px;
-    padding: 6px;
-    width: 300px;
-    margin: 1vh 0 0 20vw;
+    font-size: 1.3rem;
+    padding: .5rem;
+    width: 20rem;
     border-style: none;
 }
 
 .fa-magnifying-glass{
     color: var(--darkgray);
-    margin-left: -5vw;
+    margin-left: -2rem;
     width: 5px;
     height: 5px;
     cursor: pointer;
 }
 
+.search-button{
+    display: none;
+}
+
 .menu-login{
-    font-size: 15px;
+    font-size: 1.6rem;
     color: white;
     text-decoration: none;
-    margin-right: 3vw;
-    padding-top: 4px;
+    margin-right: 4rem;
+}
+
+/* FILTRO */
+.container-row{
+    float:right;
+    margin-top: 1.4rem;
+    margin-right: 4rem;
+}
+
+.filter-section, .filter-section select{
+    font-size: 1.6rem;
+    color: var(--darkgray);
+}
+
+.filter-section select{
+    font-family: var(--font-Khand);
 }
