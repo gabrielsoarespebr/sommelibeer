@@ -11,6 +11,13 @@
 }
 
 /* GERAL */
+.arrow {
+    width: 10%;
+    height: 10%;
+}
+.seta {
+    text-align: center;
+}
 
 * {
     margin: 0;
