@@ -21,10 +21,9 @@ body{
     font-family: var(--font-Khand);
     font-size: 1.3rem;
 }
-
 /* MENU */
 .menu-bg {
-    background-color: var(--blue);
+    background-image: linear-gradient(to bottom, var(--blue), var(--black));
     height: 6rem;
 }
 
@@ -119,14 +118,23 @@ body{
 .product{
     width: 15rem;
     text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .product img{
     height: 14rem;
+    
 }
 
 .product h3, .product fieldset{
     color: var(--blue);
+}
+
+.product h3 {
+    width: 240px;
+    height: 76px;
 }
 
 .product .price, .product .rating{
