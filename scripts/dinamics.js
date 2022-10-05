@@ -9,31 +9,70 @@ function arquivos()
     let valores = [drink01, drink02, drink03, drink04, drink05, drink06]   
     return valores 
 }
-function arrowFlow(andamento, fim)
+function arrowAnimation(inicio, fim){
+    if (inicio == 0){
+        setaEsquerda.innerHTML = '<img class="arrow-left" src="images/arrow-left-gray.png" alt="" onclick="rodar(-1)"></img>'+'<img class="arrow-right" src="images/arrow-right.png" alt="" onclick="rodar(1)"></img>'
+    }
+    else if (inicio == 1){
+        setaEsquerda.innerHTML = '<img class="arrow-left" src="images/arrow-left.png" alt="" onclick="rodar(-1)"></img>'+'<img class="arrow-right" src="images/arrow-right.png" alt="" onclick="rodar(1)"></img>'
+    }
+    else if (fim == bebidas.length-1){
+        setaEsquerda.innerHTML = '<img class="arrow-left" src="images/arrow-left.png" alt="" onclick="rodar(-1)"></img>'+'<img class="arrow-right" src="images/arrow-right-gray.png" alt="" onclick="rodar(1)"></img>'
+    }
+}
+function arrowFlow(inicio, fim)
 {
-    let bebidas = arquivos()
     let pagina = document.querySelector(".products-container")
     pagina.innerHTML = ""
-    for (var c=andamento; c<=fim; c++)
+    for (var c=inicio; c<=fim; c++)
     {
         pagina.innerHTML += '<div class="product" data-name="p-'+(c+1)+'">'+
         '<img src='+bebidas[c].img+' alt="Produto 1">'+
         '<h3>'+ bebidas[c].name+ '</h3>'+ 
-        '<span class="price">R$'+ bebidas[c].price+'</span>'+
-        '<span class="rating">'+ bebidas[c].rating+'</span>'+ 
+        '<div class="price-rating">'+
+        '<span class="price">R$'+ bebidas[c].price.toFixed(2).replace(".", ",")+'</span>'+
+        '<span class="rating">'+ bebidas[c].rating.toFixed(1)+'</span>'+ 
+        '</div>'+
         '<fieldset class="comment">'+
         '<legend>Avaliação em destaque</legend>'+
         '<p>'+ bebidas[c].comment+'</p>'+
         '</fieldset>'+
         '</div>'
     }
+    arrowAnimation(inicio, fim)
 }
 function rodar(acrescimo)
 {
-    andamento =  acrescimo
+    inicio +=  acrescimo
     fim +=  acrescimo
-    arrowFlow(andamento, fim)
+    if (acrescimo == 1)
+    {
+        if (inicio + 3 < bebidas.length)
+        {
+            arrowFlow(inicio, fim)
+        }    
+        else 
+        {
+            inicio -= 1
+            fim -= 1
+        }
+    }
+    else
+    {
+        if (fim-3 >= 0)
+        {
+            arrowFlow(inicio, fim)
+
+        }
+        else
+        {
+            inicio += 1
+            fim += 1
+        }
+    }    
 }
 
-var andamento =0, fim=3
-arrowFlow(andamento, fim)
+var setaEsquerda = document.querySelector(".seta");
+var bebidas = arquivos()
+var inicio=0, fim=3
+arrowFlow(inicio, fim)

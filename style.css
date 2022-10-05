@@ -11,7 +11,7 @@
 }
 
 /* GERAL */
-.arrow {
+.arrow-right, .arrow-left {
     width: 10%;
     height: 10%;
 }
@@ -117,13 +117,12 @@ body{
     display: grid;
     grid-template-columns: repeat(auto-fit, 16rem);
     gap: 2rem;
-    margin: 5rem 4rem 5rem 4rem;
+    margin: 5rem auto 1rem auto;
     justify-content: center;
 }
 
 /*PRODUTOS*/
 .product{
-    width: 15rem;
     text-align: center;
     padding: 10px;
     border-radius: 10px;
@@ -148,9 +147,15 @@ body{
     font-family: var(--font-Gothic);
 }
 
+.product .price-rating {
+    padding-bottom: 10px;
+    text-align: center;
+}
+
 .product .price{
     color: var(--darkgray);
     font-size: 3rem;
+    margin-right: 5px;
 }
 
 .product .rating{
@@ -169,4 +174,9 @@ body{
     font-weight: 500;
     text-align: left;
     font-size: .8rem;
+}
+.product > .comment {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+    
 }
