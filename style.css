@@ -108,6 +108,10 @@ body{
     color: var(--darkgray);
 }
 
+.filter-design {
+    padding-right: 10px; display: inline;
+}
+
 .filter-section select{
     font-family: var(--font-Khand);
 }

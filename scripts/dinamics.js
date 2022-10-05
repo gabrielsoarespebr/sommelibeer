@@ -1,4 +1,4 @@
-function arquivos()
+function arquivos() //Cria a lista de bebidas
 {
     let drink01 = {name: "Brahma Duplo Malte 600ML", price: 6.99, rating: 4.0, comment: "", img: "images/drinks/brahmaduplomalte600ml.png"}
     let drink02 = {name: "Eisen Bahn Strong Golden Ale 355ML", price: 4.99, rating: 4.3, comment: "", img: "images/drinks/eisenbahnstronggoldenale355ml.png"}
@@ -9,7 +9,8 @@ function arquivos()
     let valores = [drink01, drink02, drink03, drink04, drink05, drink06]   
     return valores 
 }
-function arrowAnimation(inicio, fim){
+function arrowAnimation(inicio, fim) //Deixa a seta cinza quando não rolar
+{
     if (inicio == 0){
         setaEsquerda.innerHTML = '<img class="arrow-left" src="images/arrow-left-gray.png" alt="" onclick="rodar(-1)"></img>'+'<img class="arrow-right" src="images/arrow-right.png" alt="" onclick="rodar(1)"></img>'
     }
@@ -20,7 +21,7 @@ function arrowAnimation(inicio, fim){
         setaEsquerda.innerHTML = '<img class="arrow-left" src="images/arrow-left.png" alt="" onclick="rodar(-1)"></img>'+'<img class="arrow-right" src="images/arrow-right-gray.png" alt="" onclick="rodar(1)"></img>'
     }
 }
-function arrowFlow(inicio, fim)
+function arrowFlow(inicio, fim) //Cria lista de bebidas
 {
     let pagina = document.querySelector(".products-container")
     pagina.innerHTML = ""

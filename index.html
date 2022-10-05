@@ -37,35 +37,43 @@
         <div class="container-row">
             <div class="filter-section">
                 <label for="type">Tipo:</label>
-                <select name="type" id="type">
-                    <option selected value="default">Todos</option>
-                    <option value="pilsen">Pilsen</option>
-                    <option value="lager">Lager</option>
-                    <option value="pale_ale">Pale Ale</option>
-                    <option value="bock">Bock</option>
-                    <option value="weissbier">Weissbier</option>
-                </select>
+                <div class="filter-design">
+                    <select name="type" id="type">
+                        <option selected value="default">Todos</option>
+                        <option value="pilsen">Pilsen</option>
+                        <option value="lager">Lager</option>
+                        <option value="pale_ale">Pale Ale</option>
+                        <option value="bock">Bock</option>
+                        <option value="weissbier">Weissbier</option>
+                    </select>
+                </div>
 
                 <label for="volume">Volume:</label>
-                <select name="volume" id="volume">
-                    <option selected value="default">Todos</option>
-                    <option value="below400">Até 400ml</option>
-                    <option value="400to600">De 400ml a 600ml</option>
-                    <option value="600to800">De 600ml a 800ml</option>
-                    <option value="above800">Acima de 800ml</option>
-                </select>
+                <div class="filter-design">
+                    <select name="volume" id="volume">
+                        <option selected value="default">Todos</option>
+                        <option value="below400">Até 400ml</option>
+                        <option value="400to600">De 400ml a 600ml</option>
+                        <option value="600to800">De 600ml a 800ml</option>
+                        <option value="above800">Acima de 800ml</option>
+                    </select>
+                </div>
+
 
                 <label for="orderBy">Ordenar por:</label>
-                <select name="orderBy" id="orderBy">
-                    <option selected value="relevance_desc">Maior relevância</option>
-                    <option value="relevance_desc">Menor relevância</option>
-                    <option value="rating_desc">Melhor avaliação</option>
-                    <option value="rating_asc">Pior avaliação</option>
-                    <option value="price_desc">Maior preço</option>
-                    <option value="price_asc">Menor preço</option>
-                    <option value="alcool_desc">Maior teor alcoólico</option>
-                    <option value="alcool_asc">Menor teor alcoólico</option>
-                </select>
+                <div class="filter-design">
+                    <select name="orderBy" id="orderBy">
+                        <option selected value="relevance_desc">Maior relevância</option>
+                        <option value="relevance_desc">Menor relevância</option>
+                        <option value="rating_desc">Melhor avaliação</option>
+                        <option value="rating_asc">Pior avaliação</option>
+                        <option value="price_desc">Maior preço</option>
+                        <option value="price_asc">Menor preço</option>
+                        <option value="alcool_desc">Maior teor alcoólico</option>
+                        <option value="alcool_asc">Menor teor alcoólico</option>
+                    </select>
+                </div>
+
             </div> <!-- .filter-section -->
         </div> <!-- .container-row -->
         <div class="products-container">
