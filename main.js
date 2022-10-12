@@ -16,7 +16,6 @@ const actionsByChoose =
     }
 function changeOrder(){
     let selectedOption = ordering.value
-    console.log(actionsByChoose[selectedOption])
     drinksFlow(actionsByChoose[selectedOption])
     
 }

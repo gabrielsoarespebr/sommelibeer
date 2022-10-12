@@ -1,16 +1,20 @@
 //Criando Variaveis
-var inicio = 0
-var fim = 3
+var inicio, fim 
 var bebidas
+document.querySelector(".arrow-right").addEventListener("click", function(){auxFlowRun(1)})
+document.querySelector(".arrow-left").addEventListener("click", function(){auxFlowRun(-1)})
 
 export function drinksFlow(lista){
+    inicio = 0
+    fim = 3
+    console.clear()
+    console.log("Inicio "+inicio+" Fim: "+fim)
     bebidas = lista.slice(0)
-    arrowFlow(inicio, fim, bebidas)
-    document.querySelector(".arrow-right").addEventListener("click", function(){auxFlowRun(1)})
-    document.querySelector(".arrow-left").addEventListener("click", function(){auxFlowRun(-1)})
+    arrowFlow(inicio, fim)
+    
 }
 
-function arrowAnimation(inicio, fim) //Deixa a seta cinza quando não puder rolar
+function arrowAnimation() //Deixa a seta cinza quando não puder rolar
 {
     if (inicio == 0){
         document.querySelector(".arrow-left").src = 'images/arrow-left-gray.png'
@@ -26,12 +30,14 @@ function arrowAnimation(inicio, fim) //Deixa a seta cinza quando não puder rola
     }
 }
 
-function arrowFlow(inicio, fim) //Cria lista de bebidas
+function arrowFlow() //Cria lista de bebidas
 {
+    var lista = []
     let pagina = document.querySelector(".products-container")
     pagina.innerHTML = ""
     for (var c=inicio; c<=fim; c++)
     {
+        lista.push(c)
         pagina.innerHTML += '<div class="product" data-name="p-'+(c+1)+'">'+
         '<img src='+bebidas[c].img+' alt="Produto 1">'+
         '<h3>'+ bebidas[c].name+ '</h3>'+ 
@@ -45,18 +51,22 @@ function arrowFlow(inicio, fim) //Cria lista de bebidas
         '</fieldset>'+
         '</div>'
     }
-    arrowAnimation(inicio, fim)
+    console.log(lista)
+    console.log("-------------------")
+    arrowAnimation()
 }
 
 function auxFlowRun(acrescimo) //Define e configura se é indo ou voltando
 {
+    console.log("chamado")
     inicio +=  acrescimo
     fim +=  acrescimo
     if (acrescimo == 1)
     {
         if (inicio + 3 < bebidas.length)
         {
-            arrowFlow(inicio, fim)
+            console.log("Inicio "+inicio+" Fim: "+fim)
+            arrowFlow()
         }    
         else 
         {
@@ -68,7 +78,8 @@ function auxFlowRun(acrescimo) //Define e configura se é indo ou voltando
     {
         if (fim-3 >= 0)
         {
-            arrowFlow(inicio, fim)
+            console.log("Inicio "+inicio+" Fim: "+fim)
+            arrowFlow()
 
         }
         else
@@ -76,5 +87,5 @@ function auxFlowRun(acrescimo) //Define e configura se é indo ou voltando
             inicio += 1
             fim += 1
         }
-    }    
+    }  
 }
