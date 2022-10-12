@@ -1,15 +1,32 @@
-function arrowAnimation(inicio, fim) //Deixa a seta cinza quando não rolar
+//Importando dados
+import {drinks} from './drinks.js'
+
+//Criando Variaveis
+const bebidas = drinks()
+var inicio=0, fim=3
+
+export function drinksFlow(){
+    arrowFlow(inicio, fim)
+    document.querySelector(".arrow-right").addEventListener("click", function(){auxFlowRun(+1)})
+    document.querySelector(".arrow-left").addEventListener("click", function(){auxFlowRun(-1)})
+}
+
+function arrowAnimation(inicio, fim) //Deixa a seta cinza quando não puder rolar
 {
     if (inicio == 0){
-        setaEsquerda.innerHTML = '<img class="arrow-left" src="images/arrow-left-gray.png" alt=""></img>'+'<img class="arrow-right" src="images/arrow-right.png" alt=""></img>'
+        document.querySelector(".arrow-left").src = 'images/arrow-left-gray.png'
+        document.querySelector(".arrow-right").src = 'images/arrow-right.png'
     }
     else if (inicio == 1){
-        setaEsquerda.innerHTML = '<img class="arrow-left" src="images/arrow-left.png" alt=""></img>'+'<img class="arrow-right" src="images/arrow-right.png" alt=""></img>'
+        document.querySelector(".arrow-left").src = 'images/arrow-left.png'
+        document.querySelector(".arrow-right").src = 'images/arrow-right.png'
     }
     else if (fim == bebidas.length-1){
-        setaEsquerda.innerHTML = '<img class="arrow-left" src="images/arrow-left.png" alt="" onclick="rodar(-1)"></img>'+'<img class="arrow-right" src="images/arrow-right-gray.png" alt=""></img>'
+        document.querySelector(".arrow-left").src = 'images/arrow-left.png'
+        document.querySelector(".arrow-right").src = 'images/arrow-right-gray.png'
     }
 }
+
 function arrowFlow(inicio, fim) //Cria lista de bebidas
 {
     let pagina = document.querySelector(".products-container")
@@ -31,7 +48,8 @@ function arrowFlow(inicio, fim) //Cria lista de bebidas
     }
     arrowAnimation(inicio, fim)
 }
-function rodar(acrescimo)
+
+function auxFlowRun(acrescimo) //Define e configura se é indo ou voltando
 {
     inicio +=  acrescimo
     fim +=  acrescimo
@@ -61,15 +79,3 @@ function rodar(acrescimo)
         }
     }    
 }
-
-function teste(palavra){
-    console.log(palavra)
-}
-
-var setaEsquerda = document.querySelector(".seta");
-
-import {arquivos} from './data.js'
-var bebidas = arquivos()
-var inicio=0, fim=3
-arrowFlow(inicio, fim)
-document.querySelector(".arrow-right").addEventListener("click", teste("azul"))

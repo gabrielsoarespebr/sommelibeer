@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500&family=League+Gothic&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="scripts/dinamics.js" defer></script>
+    <script type="module" src="main.js" defer></script>
 </head>
 
 <body>
@@ -51,7 +51,7 @@
                 <label for="volume">Volume:</label>
                 <div class="filter-design">
                     <select name="volume" id="volume">
-                        <option selected value="default">Todos</option>
+                        <option selected value="allml">Todos</option>
                         <option value="below400">Até 400ml</option>
                         <option value="400to600">De 400ml a 600ml</option>
                         <option value="600to800">De 600ml a 800ml</option>
@@ -64,7 +64,7 @@
                 <div class="filter-design">
                     <select name="orderBy" id="orderBy">
                         <option selected value="relevance_desc">Maior relevância</option>
-                        <option value="relevance_desc">Menor relevância</option>
+                        <option value="relevance_asc">Menor relevância</option>
                         <option value="rating_desc">Melhor avaliação</option>
                         <option value="rating_asc">Pior avaliação</option>
                         <option value="price_desc">Maior preço</option>
