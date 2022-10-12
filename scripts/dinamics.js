@@ -1,13 +1,13 @@
 function arrowAnimation(inicio, fim) //Deixa a seta cinza quando não rolar
 {
     if (inicio == 0){
-        setaEsquerda.innerHTML = '<img class="arrow-left" src="images/arrow-left-gray.png" alt="" onclick="rodar(-1)"></img>'+'<img class="arrow-right" src="images/arrow-right.png" alt="" onclick="rodar(1)"></img>'
+        setaEsquerda.innerHTML = '<img class="arrow-left" src="images/arrow-left-gray.png" alt=""></img>'+'<img class="arrow-right" src="images/arrow-right.png" alt=""></img>'
     }
     else if (inicio == 1){
-        setaEsquerda.innerHTML = '<img class="arrow-left" src="images/arrow-left.png" alt="" onclick="rodar(-1)"></img>'+'<img class="arrow-right" src="images/arrow-right.png" alt="" onclick="rodar(1)"></img>'
+        setaEsquerda.innerHTML = '<img class="arrow-left" src="images/arrow-left.png" alt=""></img>'+'<img class="arrow-right" src="images/arrow-right.png" alt=""></img>'
     }
     else if (fim == bebidas.length-1){
-        setaEsquerda.innerHTML = '<img class="arrow-left" src="images/arrow-left.png" alt="" onclick="rodar(-1)"></img>'+'<img class="arrow-right" src="images/arrow-right-gray.png" alt="" onclick="rodar(1)"></img>'
+        setaEsquerda.innerHTML = '<img class="arrow-left" src="images/arrow-left.png" alt="" onclick="rodar(-1)"></img>'+'<img class="arrow-right" src="images/arrow-right-gray.png" alt=""></img>'
     }
 }
 function arrowFlow(inicio, fim) //Cria lista de bebidas
@@ -31,7 +31,7 @@ function arrowFlow(inicio, fim) //Cria lista de bebidas
     }
     arrowAnimation(inicio, fim)
 }
-export function rodar(acrescimo)
+function rodar(acrescimo)
 {
     inicio +=  acrescimo
     fim +=  acrescimo
@@ -62,9 +62,14 @@ export function rodar(acrescimo)
     }    
 }
 
+function teste(palavra){
+    console.log(palavra)
+}
+
 var setaEsquerda = document.querySelector(".seta");
 
 import {arquivos} from './data.js'
 var bebidas = arquivos()
 var inicio=0, fim=3
 arrowFlow(inicio, fim)
+document.querySelector(".arrow-right").addEventListener("click", teste("azul"))
