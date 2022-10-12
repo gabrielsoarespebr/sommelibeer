@@ -1,21 +1,25 @@
 import {drinksFlow} from './scripts/dinamics.js'
-drinksFlow()
-function changeOrder(){
-    var selectedOption = ordering.value//ordering.options[ordering.selectedIndex].value
-    //relevance_desc
-    //relevance_asc
-    //rating_desc
-    //rating_asc
-    //price_desc
-    //price_asc
-    //alcool_desc
-    //alcool_asc
-    console.log(dados.sort)
-}
-//var optionsActions = {
-    //nome: function() {}
-//}
+import {drinks} from './scripts/drinks.js'
 
-var dados = [1, 5, 7, 2, 3]
-var ordering = document.querySelector("#orderBy")
+var listaBebidas = drinks()
+const ordering = document.querySelector("#orderBy")
+const actionsByChoose = 
+    {
+        relevance_desc: listaBebidas.slice(0),
+        relevance_asc: listaBebidas.slice(0).reverse(),
+        rating_desc: listaBebidas.slice(0).sort(function(a,b) {return b.rating - a.rating}),
+        rating_asc: listaBebidas.slice(0).sort(function(a,b) {return a.rating - b.rating}), 
+        price_desc: listaBebidas.slice(0).sort(function(a,b) {return b.price - a.price}),
+        price_asc: listaBebidas.slice(0).sort(function(a,b) {return a.price - b.price}),
+        alcool_desc: listaBebidas.slice(0).sort(function(a,b) {return b.alcoholcontent - a.alcoholcontent}),
+        alcool_asc: listaBebidas.slice(0).sort(function(a,b) {return a.alcoholcontent - b.alcoholcontent})
+    }
+function changeOrder(){
+    let selectedOption = ordering.value
+    console.log(actionsByChoose[selectedOption])
+    drinksFlow(actionsByChoose[selectedOption])
+    
+}
+
+drinksFlow(listaBebidas)
 ordering.addEventListener("change", function(){changeOrder()})

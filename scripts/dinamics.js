@@ -1,13 +1,12 @@
-//Importando dados
-import {drinks} from './drinks.js'
-
 //Criando Variaveis
-const bebidas = drinks()
-var inicio=0, fim=3
+var inicio = 0
+var fim = 3
+var bebidas
 
-export function drinksFlow(){
-    arrowFlow(inicio, fim)
-    document.querySelector(".arrow-right").addEventListener("click", function(){auxFlowRun(+1)})
+export function drinksFlow(lista){
+    bebidas = lista.slice(0)
+    arrowFlow(inicio, fim, bebidas)
+    document.querySelector(".arrow-right").addEventListener("click", function(){auxFlowRun(1)})
     document.querySelector(".arrow-left").addEventListener("click", function(){auxFlowRun(-1)})
 }
 
