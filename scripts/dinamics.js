@@ -7,8 +7,6 @@ document.querySelector(".arrow-left").addEventListener("click", function(){auxFl
 export function drinksFlow(lista){
     inicio = 0
     fim = 3
-    console.clear()
-    console.log("Inicio "+inicio+" Fim: "+fim)
     bebidas = lista.slice(0)
     arrowFlow(inicio, fim)
     
@@ -32,12 +30,10 @@ function arrowAnimation() //Deixa a seta cinza quando não puder rolar
 
 function arrowFlow() //Cria lista de bebidas
 {
-    var lista = []
     let pagina = document.querySelector(".products-container")
     pagina.innerHTML = ""
     for (var c=inicio; c<=fim; c++)
     {
-        lista.push(c)
         pagina.innerHTML += '<div class="product" data-name="p-'+(c+1)+'">'+
         '<img src='+bebidas[c].img+' alt="Produto 1">'+
         '<h3>'+ bebidas[c].name+ '</h3>'+ 
@@ -51,21 +47,17 @@ function arrowFlow() //Cria lista de bebidas
         '</fieldset>'+
         '</div>'
     }
-    console.log(lista)
-    console.log("-------------------")
     arrowAnimation()
 }
 
 function auxFlowRun(acrescimo) //Define e configura se é indo ou voltando
 {
-    console.log("chamado")
     inicio +=  acrescimo
     fim +=  acrescimo
     if (acrescimo == 1)
     {
         if (inicio + 3 < bebidas.length)
         {
-            console.log("Inicio "+inicio+" Fim: "+fim)
             arrowFlow()
         }    
         else 
@@ -78,7 +70,6 @@ function auxFlowRun(acrescimo) //Define e configura se é indo ou voltando
     {
         if (fim-3 >= 0)
         {
-            console.log("Inicio "+inicio+" Fim: "+fim)
             arrowFlow()
 
         }
