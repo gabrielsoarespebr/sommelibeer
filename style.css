@@ -28,6 +28,10 @@ body{
     font-family: var(--font-Khand);
     font-size: 1.3rem;
 }
+
+header {
+    margin-bottom: 1%;
+}
 /* MENU */
 .menu-bg {
     background-image: linear-gradient(to bottom, var(--blue), var(--black));
@@ -96,54 +100,78 @@ body{
     margin-right: 4rem;
 }
 
-/* FILTRO */
-.container-row{
-    float:right;
-    margin-top: 1.2rem;
-    margin-right: 4rem;
+main {
+    padding: 1%;
+    display: block;
+    flex-wrap: wrap;
 }
 
-.filter-section, .filter-section select{
+/* FILTRO */
+.filter-section{
+    margin-bottom: 20px;
+    padding-right: 5%;
+    text-align: end;
     font-size: 1.3rem;
     color: var(--darkgray);
 }
-
-.filter-design {
-    padding-right: 10px; display: inline;
-}
-
-.filter-section select{
+.filter-section > select {
+    font-size: 1.3rem;
+    color: var(--darkgray);
     font-family: var(--font-Khand);
 }
 
-/* GALERIA */
-.products-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 16rem);
-    gap: 2rem;
-    margin: 5rem auto 1rem auto;
-    justify-content: center;
+
+#content {
+    display: flex;
+    flex-wrap: wrap;
 }
+
+#filter-options {
+    width: 20%;
+    height: 90%;
+}
+
+#products-manager {
+    display: block;
+    width: 80%;
+    height: 90%;
+    margin-bottom: 20px;
+}
+
+#products-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+
+
+/* GALERIA */
+
 
 /*PRODUTOS*/
 .product{
+    width: 20%;
+    min-width: 200px;
+    margin: 0px auto 20px auto;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .product img{
-    height: 14rem;
+    height: 12rem;
     
 }
-
 .product h3, .product fieldset{
     color: var(--blue);
 }
-
 .product h3 {
-    width: 240px;
+    text-align: center;
+    margin: auto;
+    width: 15.5vw;
+    min-width: 165px;
     height: 76px;
 }
 
@@ -152,7 +180,7 @@ body{
 }
 
 .product .price-rating {
-    padding-bottom: 10px;
+    padding-bottom: 1%;
     text-align: center;
 }
 
