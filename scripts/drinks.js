@@ -1,6 +1,6 @@
 function drinks() //Lista de bebidas
 {
-    let drink0000 = {name: "Heineken 600ml", price: 9.60, rating: 4.6, comment: "", img: "images/drinks/heineken600ml.png", brand: "Heineken", volume: 600, type: "Lager", alcoholcontent: 5, ibu: 19, energyvalue: 84, carbohydrates: 6.4, allergens: "Contém glúten. Pode conter cevada.", ingredients: "Água, malte e lúpulo.", harmonization: "Petiscos em geral."};
+    let drink0000 = {name: "Heineken 600ml", price: 10.63, rating: 4.6, comment: "", img: "images/drinks/heineken600ml.png", brand: "Heineken", volume: 600, type: "Lager", alcoholcontent: 5, ibu: 19, energyvalue: 84, carbohydrates: 6.4, allergens: "Contém glúten. Pode conter cevada.", ingredients: "Água, malte e lúpulo.", harmonization: "Petiscos em geral."};
 
     let drink0001 = {name: "Brahma Duplo Malte 600ml", price: 6.99, rating: 4.0, comment: "", img: "images/drinks/brahmaduplomalte600ml.png", brand: "Brahma", volume: 600, type: "Lager", alcoholcontent: 4.7, ibu: 11, energyvalue: 80, carbohydrates: 6, allergens: "Contém cevada e glúten.", ingredients: "Água, malte e lúpulo.", harmonization: "Petiscos em geral."};
 

@@ -33,60 +33,142 @@
             </div> <!-- .menu -->
         </div> <!-- .menu-bg -->
     </header>
-    <div class="container-row">
-
-    </div> <!-- .container-row -->
-    <div class="product-container grid1-2">
-        <div class="center-cropped">
-            <img class="product-image" src="" alt="Imagem do produto">
-        </div>
-        <div class="product-description">
-            <div class="top-row">
-                <h2 class="product-name inline"></h2>
-                <span class="rating"></span>
+    <div class="side-by-side">
+        <div class="product-container grid1-2">
+            <div class="center-cropped">
+                <img class="product-image" src="" alt="Imagem do produto">
+                <div id="price"></div>
+                <div id="price-feedback">(price feedback)</div>
             </div>
-            <div class="specifications grid1-1">
-                <label class="specification-attribute" for="brand">Marca</label>
-                <span id="brand" class="specification-value"></span>
+            <div class="product-description">
+                <div class="top-row">
+                    <h2 class="product-name inline"></h2>
+                    <span class="rating"></span>
+                </div>
+                <div class="specifications grid1-1">
+                    <label class="specification-attribute" for="brand">Marca</label>
+                    <span id="brand" class="specification-value"></span>
 
-                <label class="specification-attribute" for="volume">Volume</label>
-                <span id="volume" class="specification-value"></span>
+                    <label class="specification-attribute" for="volume">Volume</label>
+                    <span id="volume" class="specification-value"></span>
 
-                <label class="specification-attribute" for="type">Tipo</label>
-                <span id="type" class="specification-value"></span>
-                
-                <label class="specification-attribute" for="alcoholcontent">Teor alcoólico</label>
-                <span id="alcoholcontent" class="specification-value"></span>
+                    <label class="specification-attribute" for="type">Tipo</label>
+                    <span id="type" class="specification-value"></span>
 
-                <label class="specification-attribute" for="ibu">IBU (Amargor)</label>
-                <span id="ibu" class="specification-value"></span>
+                    <label class="specification-attribute" for="alcoholcontent">Teor alcoólico</label>
+                    <span id="alcoholcontent" class="specification-value"></span>
 
-                <label class="specification-attribute" for="energyvalue">Valor energético*</label>
-                <span id="energyvalue" class="specification-value"></span>
+                    <label class="specification-attribute" for="ibu">IBU (Amargor)</label>
+                    <span id="ibu" class="specification-value"></span>
 
-                <label class="specification-attribute" for="carbohydrates">Carboidratos totais*</label>
-                <span id="carbohydrates" class="specification-value"></span>
+                    <label class="specification-attribute" for="energyvalue">Valor energético*</label>
+                    <span id="energyvalue" class="specification-value"></span>
 
-                <label class="specification-attribute" for="allergens">Alergênicos</label>
-                <span id="allergens" class="specification-value"></span>
+                    <label class="specification-attribute" for="carbohydrates">Carboidratos totais*</label>
+                    <span id="carbohydrates" class="specification-value"></span>
 
-                <label class="specification-attribute" for="ingredients">Ingredientes</label>
-                <span id="ingredients" class="specification-value"></span>
+                    <label class="specification-attribute" for="allergens">Alergênicos</label>
+                    <span id="allergens" class="specification-value"></span>
 
-                <label class="specification-attribute" for="harmonization">Harmonização</label>
-                <span id="harmonization" class="specification-value"></span>
+                    <label class="specification-attribute" for="ingredients">Ingredientes</label>
+                    <span id="ingredients" class="specification-value"></span>
 
-                <p id="nutritionfactslegend">*Valores para 200ml (1 copo)</p>
-            </div> <!-- .specifications -->
-        </div>
+                    <label class="specification-attribute" for="harmonization">Harmonização</label>
+                    <span id="harmonization" class="specification-value"></span>
 
-    </div> <!-- .product-container -->
+                    <p id="nutritionfactslegend">*Valores para 200ml (1 copo)</p>
+                </div> <!-- .specifications -->
+            </div><!-- .product-description -->
+        </div> <!-- .product-container -->
+
+        <aside class="right-side-bar">
+            <section class="buy-now-section">
+                <div id="buy-now-text"><i class="fa-sharp fa-solid fa-cart-shopping fa-xs"></i>Compre agora</div>
+                <div class="stores-list">
+                    <div class="store">
+                        <a href="" id="store-link0" target="_blank">
+                            <img src="" alt="Logotipo da loja" id="store-logo0">
+                            <span id="store-name0"></span>
+                            <span id="store-price0"></span>
+                        </a>
+                    </div>
+                    <div class="store">
+                        <a href="" id="store-link1" target="_blank">
+                            <img src="" alt="Logotipo da loja" id="store-logo1">
+                            <span id="store-name1"></span>
+                            <span id="store-price1"></span>
+                        </a>
+                    </div>
+                    <div class="store">
+                        <a href="" id="store-link2" target="_blank">
+                            <img src="" alt="Logotipo da loja" id="store-logo2">
+                            <span id="store-name2"></span>
+                            <span id="store-price2"></span>
+                        </a>
+                    </div>
+                    <div class="store">
+                        <a href="" id="store-link3" target="_blank">
+                            <img src="" alt="Logotipo da loja" id="store-logo3">
+                            <span id="store-name3"></span>
+                            <span id="store-price3"></span>
+                        </a>
+                    </div>
+                    <div class="store">
+                        <a href="" id="store-link4" target="_blank">
+                            <img src="" alt="Logotipo da loja" id="store-logo4">
+                            <span id="store-name4"></span>
+                            <span id="store-price4"></span>
+                        </a>
+                    </div>
+                    <a href="#" target="_blank" class="see-more">Ver mais lojas</a>
+                </div> <!-- .stores-list -->
+            </section> <!-- .buy-now-section -->
+            <hr>
+            <section class="compare-section">
+                <div id="compare-text"><i class="fa-solid fa-not-equal fa-xs"></i>Compare</div>
+
+                <input type="search" id="search-bar2" placeholder="Insira o produto a comparar">
+                <div class="grid1-1">
+                    <div>
+                        <img class="compare-product-image compare-product1" src="" alt="Produto 1">
+                        <h3 class="compare-product-name compare-product1"></h3>
+                        <span class="compare-product-price compare-product1"></span>
+                        <span class="compare-product-rating compare-product1"></span>
+                    </div>
+
+                    <div>
+                        <img class="compare-product-image compare-product2" src="" alt="Produto 2">
+                        <h3 class="compare-product-name compare-product2"></h3>
+                        <span class="compare-product-price compare-product2"></span>
+                        <span class="compare-product-rating compare-product2"></span>
+                    </div>
+
+                    <div>
+                        <img class="compare-product-image compare-product3" src="" alt="Produto 3">
+                        <h3 class="compare-product-name compare-product3"></h3>
+                        <span class="compare-product-price compare-product3"></span>
+                        <span class="compare-product-rating compare-product3"></span>
+                    </div>
+
+                    <div>
+                        <img class="compare-product-image compare-product4" src="" alt="Produto 4">
+                        <h3 class="compare-product-name compare-product4"></h3>
+                        <span class="compare-product-price compare-product4"></span>
+                        <span class="compare-product-rating compare-product4"></span>
+                    </div>
+                </div>
+                <button type="submit" class="see-more blue-button">Ver mais produtos</button>
+            </section> <!-- .compare-section -->
+        </aside> <!-- .right-side-bar -->
+    </div><!-- side-by-side -->
 
     <!-- SCRITPS -->
     <script src="https://kit.fontawesome.com/34690a427f.js" crossorigin="anonymous"></script>
     <script src="scripts/drinks.js"></script>
-    <script src="scripts/addespecifications.js"></script>
-    <script src="scripts/webscrapingprices.js"></script>
+    <script src="scripts/addEspecifications.js"></script>
+    <script src="scripts/stores.js"></script>
+    <script src="scripts/addStores.js"></script>
+    <script src="scripts/addCompareSection.js"></script>
 </body>
 
 </html>

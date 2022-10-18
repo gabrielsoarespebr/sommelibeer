@@ -1,6 +1,8 @@
 /* VARIÁVEIS */
 :root {
+    --lightorange: #fc9866;
     --orange: #F9874E;
+    --lightblue: #4b4fb7;
     --blue: #373A87;
     --black: #141D34;
     --lightgray: #edeae9;
@@ -91,6 +93,16 @@ body {
 }
 
 /*PÁGINA DO PRODUTO*/
+.side-by-side {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.product-container {
+    margin-top: 20px;
+}
+
 .grid1-1,
 .grid1-2 {
     display: grid;
@@ -102,7 +114,6 @@ body {
 
 .grid1-2 {
     grid-template-columns: 1fr 2fr;
-    width: 500px;
 }
 
 .container-row {
@@ -110,16 +121,28 @@ body {
 }
 
 .center-cropped {
-    width: 400px;
     text-align: center;
 }
 
 .product-image {
-    height: 600px;
+    height: 400px;
     margin: 30px auto;
     display: flex;
     text-align: center;
     justify-content: center;
+}
+
+#price {
+    font-family: var(--font-Gothic);
+    color: var(--darkgray);
+    font-size: 4rem;
+}
+
+#price-feedback {
+    font-family: var(--font-Khand);
+    color: var(--darkgray);
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
 .top-row {
@@ -147,7 +170,7 @@ body {
 
 .specifications {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 500;
     text-align: center;
     margin: .2rem;
     padding: .3rem 1rem;
@@ -158,18 +181,165 @@ body {
     background-color: var(--blue);
     color: white;
     margin: .2rem;
-    width: 350px;
+    width: 270px;
 }
 
 .specification-value {
     background-color: var(--lightgray);
     color: var(--blue);
     margin: .2rem;
-    width: 350px;
+    width: 270px;
 }
 
 #nutritionfactslegend {
     color: var(--darkgray);
     font-weight: 500;
     text-align: left;
+}
+
+/* SIDEBAR */
+.right-side-bar {
+    width: 20%;
+    text-align: center;
+    font-weight: 500;
+    background-color: var(--lightgray);
+    box-shadow: -2px 0 4px var(--darkgray);
+}
+
+.stores-list {
+    border-radius: 20px 20px 0 0;
+}
+
+.fa-cart-shopping,
+.fa-not-equal {
+    margin-right: 10px;
+}
+
+#buy-now-text,
+#compare-text {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+#buy-now-text {
+    margin-top: 25px;
+    color: var(--orange);
+}
+
+#compare-text {
+    color: var(--blue);
+}
+
+.store a,
+.see-more {
+    width: 220px;
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: space-around;
+    text-decoration: none;
+    background-color: var(--orange);
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.store a:hover,
+.see-more:hover {
+    background-color: var(--lightorange);
+}
+
+.see-more {
+    width: 50%
+}
+
+.store img {
+    height: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+hr {
+    margin: 20px;
+    border: .05rem solid var(--darkgray);
+    opacity: .2;
+}
+
+/* SEÇÃO DE COMPARAÇÃO */
+
+#search-bar2,
+#search-bar2:active,
+#search-bar2:hover {
+    background-color: white;
+    color: var(--blue);
+    font-family: var(--font-Khand);
+    font-weight: 500;
+    border-radius: 10px;
+    font-size: 1rem;
+    padding: .5rem;
+    width: 80%;
+    margin: auto;
+    border-style: none;
+}
+
+.compare-section {
+    display: grid;
+    color: var(--blue);
+}
+
+.compare-section>div>div {
+    width: 90%;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.compare-section>div>div:hover {
+    background-color: var(--blue);
+    cursor: pointer;
+    color: white;
+}
+
+.compare-section>div>div:hover .compare-product-rating {
+    background-color: var(--lightblue);
+}
+
+.compare-product-image {
+    height: 70px;
+}
+
+.compare-product-name {
+    font-size: 1rem;
+}
+
+.compare-product-price {
+    font-size: 1.6rem;
+}
+
+.compare-product-rating {
+    font-size: 1.4rem;
+    background-color: var(--blue);
+    color: white;
+    padding: .1rem .3rem .001rem .3rem;
+    border-radius: 50%;
+}
+
+.blue-button {
+    width: 60%;
+    background-color: var(--blue);
+    font-family: var(--font-Khand);
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-style: none;
+}
+
+.blue-button:hover {
+    width: 60%;
+    background-color: var(--lightblue);
+    cursor: pointer;
+}
+
+div+button {
+    margin-top: 20px;
 }
