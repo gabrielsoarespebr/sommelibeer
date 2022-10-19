@@ -101,6 +101,8 @@ header {
 }
 
 main {
+    width: 90%;
+    margin: auto;
     padding: 1%;
     display: block;
     flex-wrap: wrap;
