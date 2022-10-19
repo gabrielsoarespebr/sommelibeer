@@ -2,6 +2,27 @@ import {drinksFlow} from './scripts/dinamics.js'
 import {drinks} from './scripts/drinks.js'
 
 var listaBebidas = drinks()
+var higherPrice, lowerPrice
+
+for (let cont = 0; cont < listaBebidas.length; cont++){
+    if (cont==0){
+        higherPrice = lowerPrice = listaBebidas[cont].price
+    }
+    else {
+        if (listaBebidas[cont].price > higherPrice){
+            higherPrice = listaBebidas[cont].price
+        }
+        if (listaBebidas[cont].price < lowerPrice){
+            lowerPrice = listaBebidas[cont].price
+        }
+    }
+}
+
+var total = parseFloat(((higherPrice - lowerPrice)/4).toFixed(2))
+//let priceList = document.querySelector("#price-list")
+//for (let c = 0; c < 4; c++){
+//    priceList.innerHTML += "<p>"+c+"</p>"
+//}
 const ordering = document.querySelector("#orderBy")
 const actionsByChoose = 
     {
