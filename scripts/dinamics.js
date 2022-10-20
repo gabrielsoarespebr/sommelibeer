@@ -6,7 +6,7 @@ document.querySelector(".arrow-left").addEventListener("click", function(){auxFl
 
 export function drinksFlow(lista){
     inicio = 0
-    fim = 3
+    fim = 11
     bebidas = lista.slice(0)
     arrowFlow(inicio, fim)
     
@@ -56,7 +56,7 @@ function auxFlowRun(acrescimo) //Define e configura se é indo ou voltando
     fim +=  acrescimo
     if (acrescimo == 1)
     {
-        if (inicio + 3 < bebidas.length)
+        if (inicio + 11 < bebidas.length)
         {
             arrowFlow()
         }    
@@ -68,7 +68,7 @@ function auxFlowRun(acrescimo) //Define e configura se é indo ou voltando
     }
     else
     {
-        if (fim-3 >= 0)
+        if (fim-11 >= 0)
         {
             arrowFlow()
 

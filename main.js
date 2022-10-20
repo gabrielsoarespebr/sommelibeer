@@ -19,10 +19,7 @@ for (let cont = 0; cont < listaBebidas.length; cont++){
 }
 
 var total = parseFloat(((higherPrice - lowerPrice)/4).toFixed(2))
-//let priceList = document.querySelector("#price-list")
-//for (let c = 0; c < 4; c++){
-//    priceList.innerHTML += "<p>"+c+"</p>"
-//}
+let priceList = document.querySelector("#price-list")
 const ordering = document.querySelector("#orderBy")
 const actionsByChoose = 
     {
@@ -41,5 +38,27 @@ function changeOrder(){
     
 }
 
+function filterApplication(id)
+{
+    console.log(id)
+    if (id=="price" && priceList.innerHTML =="")
+    {    
+        for (let c = 0; c < 10; c++)
+        {
+            priceList.innerHTML += "<p>"+c+"</p>"
+        }
+    }
+    else
+    {
+        priceList.innerHTML = ""
+    }
+}
+
 drinksFlow(listaBebidas)
+const filterOption = document.querySelectorAll(".filter-options-list")
+for (let indice = 0; indice < filterOption.length; indice++)
+{
+    filterOption[indice].addEventListener("click", function(){filterApplication(filterOption[indice].id)})
+}
+//filterOption[0].addEventListener("click", function(){console.log(4)})
 ordering.addEventListener("change", function(){changeOrder()})

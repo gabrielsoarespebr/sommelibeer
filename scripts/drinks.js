@@ -24,6 +24,6 @@ export function drinks() //Lista de bebidas
 
     let drink0011 = {name: "Antarctica Subzero 269ml", price: 2.39, rating: 3.8, comment: "", img: "images/drinks/antarcticasubzero269ml.png", brand: "Antarctica", volume: 269, type: "Pilsen", alcoholcontent: 4.5, ibu: 7.2, energyvalue: 108, carbohydrates: 9.1, allergens: "Contém cevada e glúten.", ingredients: "Água, malte, milho e lúpulo.", harmonization: "Amendoim, castanhas, aves e carne grelhada."};
 
-    let drinks = [drink0000,drink0001,drink0002,drink0003,drink0004,drink0005,drink0006,drink0007,drink0008,drink0009,drink0010];
+    let drinks = [drink0000,drink0001,drink0002,drink0003,drink0004,drink0005,drink0006,drink0007,drink0008,drink0009,drink0010,drink0011];
     return drinks;
 }
