@@ -111,7 +111,7 @@ main {
 /* FILTRO */
 .filter-section{
     margin-bottom: 20px;
-    padding-right: 5%;
+    padding-right: 1%;
     text-align: end;
     font-size: 1.3rem;
     color: var(--darkgray);
@@ -133,14 +133,19 @@ main {
     height: 90%;
 }
 
+.filter-box {
+    width: 90%;
+}
+
 .filter-options-list {
     user-select: none;
     margin-top: 5px;
     text-indent: 1ch;
     color: white;
     padding: 5px;
+    margin: 0px auto 0px auto;
     border-radius: 5px;
-    width: 90%;
+    width: 95%;
     background-color: var(--blue);
 }
 
@@ -153,11 +158,10 @@ main {
 .filter-list {
     user-select: none;
     border-radius: 0px 0px 5px 10px;
-    margin-bottom: 10px;
-    transform: translate(3%, 0);
+    margin: 0px auto 10px auto;
     width: 90%;
-    background-color: rgb(223, 223, 223);
     text-indent: 1ch;
+    background-color: rgb(223, 223, 223);
 
 }
 
@@ -204,8 +208,8 @@ main {
 }
 .product h3 {
     text-align: center;
-    margin: auto;
-    width: 15.5vw;
+    margin: 0px auto 0px auto;
+    width: 100%;
     min-width: 165px;
     height: 76px;
 }

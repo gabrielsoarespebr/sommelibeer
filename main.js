@@ -43,14 +43,16 @@ function filterApplication(id)
     console.log(id)
     if (id=="price" && priceList.innerHTML =="")
     {    
-        for (let c = 0; c < 10; c++)
+        for (let c = 0; c < 5; c++)
         {
-            priceList.innerHTML += "<p>"+c+"</p>"
+            priceList.style.padding = '5px'
+            priceList.innerHTML += "<p>Até R$"+lowerPrice+"</p>"
         }
     }
     else
     {
         priceList.innerHTML = ""
+        priceList.style.padding = '0px'
     }
 }
 

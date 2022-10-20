@@ -1,5 +1,5 @@
 //Criando Variaveis
-var inicio, fim 
+var inicio, fim
 var bebidas
 document.querySelector(".arrow-right").addEventListener("click", function(){auxFlowRun(1)})
 document.querySelector(".arrow-left").addEventListener("click", function(){auxFlowRun(-1)})
@@ -8,8 +8,7 @@ export function drinksFlow(lista){
     inicio = 0
     fim = 11
     bebidas = lista.slice(0)
-    arrowFlow(inicio, fim)
-    
+    arrowFlow(inicio, fim)   
 }
 
 function arrowAnimation() //Deixa a seta cinza quando não puder rolar
@@ -50,7 +49,7 @@ function arrowFlow() //Cria lista de bebidas
     arrowAnimation()
 }
 
-function auxFlowRun(acrescimo) //Define e configura se é indo ou voltando
+function auxFlowRun(acrescimo) //Define e configura se esta avançando ou retrocedendo
 {
     inicio +=  acrescimo
     fim +=  acrescimo
