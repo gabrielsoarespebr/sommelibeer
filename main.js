@@ -1,25 +1,11 @@
 import {drinksFlow} from './scripts/dinamics.js'
 import {drinks} from './scripts/drinks.js'
+import {filterApplication} from "./scripts/filters.js"
 
 var listaBebidas = drinks()
-var higherPrice, lowerPrice
 
-for (let cont = 0; cont < listaBebidas.length; cont++){
-    if (cont==0){
-        higherPrice = lowerPrice = listaBebidas[cont].price
-    }
-    else {
-        if (listaBebidas[cont].price > higherPrice){
-            higherPrice = listaBebidas[cont].price
-        }
-        if (listaBebidas[cont].price < lowerPrice){
-            lowerPrice = listaBebidas[cont].price
-        }
-    }
-}
 
-var total = parseFloat(((higherPrice - lowerPrice)/4).toFixed(2))
-let priceList = document.querySelector("#price-list")
+
 const ordering = document.querySelector("#orderBy")
 const actionsByChoose = 
     {
@@ -38,23 +24,7 @@ function changeOrder(){
     
 }
 
-function filterApplication(id)
-{
-    console.log(id)
-    if (id=="price" && priceList.innerHTML =="")
-    {    
-        for (let c = 0; c < 5; c++)
-        {
-            priceList.style.padding = '5px'
-            priceList.innerHTML += "<p>Até R$"+lowerPrice+"</p>"
-        }
-    }
-    else
-    {
-        priceList.innerHTML = ""
-        priceList.style.padding = '0px'
-    }
-}
+
 
 drinksFlow(listaBebidas)
 const filterOption = document.querySelectorAll(".filter-options-list")

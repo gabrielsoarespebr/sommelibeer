@@ -155,14 +155,41 @@ main {
     cursor: pointer;
 }
 
+
+.filter-options-list::before {
+    content: "+";
+    margin-right: 5px;
+    color: white;
+}
 .filter-list {
     user-select: none;
     border-radius: 0px 0px 5px 10px;
     margin: 0px auto 10px auto;
     width: 90%;
-    text-indent: 1ch;
     background-color: rgb(223, 223, 223);
 
+}
+
+.filter-item{
+    text-indent: 1ch;
+    display: inline-block;
+}
+
+.filter-item:hover {
+    cursor: pointer;
+    color: var(--orange);
+}
+
+
+.filter-stars {
+    margin-left: 10px;
+    padding-top: 10px;
+    width: 50%;
+    font-size: 0.8em;
+}
+
+.filter-stars:hover {
+    cursor: pointer;
 }
 
 #products-manager {
@@ -224,7 +251,7 @@ main {
 }
 
 .product .price{
-    color: var(--darkgray);
+    color: var(--orange);
     font-size: 3rem;
     margin-right: 5px;
 }
