@@ -28,9 +28,12 @@ function changeOrder(){
 
 drinksFlow(listaBebidas)
 const filterOption = document.querySelectorAll(".filter-options-list")
+let itemsList = document.querySelectorAll(".filter-list")
 for (let indice = 0; indice < filterOption.length; indice++)
 {
     filterOption[indice].addEventListener("click", function(){filterApplication(filterOption[indice].id)})
 }
-//filterOption[0].addEventListener("click", function(){console.log(4)})
+for (let indice = 0; indice < itemsList.length; indice++){
+    itemsList[indice].style.display = "none"
+}
 ordering.addEventListener("change", function(){changeOrder()})
