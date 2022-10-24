@@ -1,5 +1,5 @@
 import {drinks} from './drinks.js'
-var higherPrice, lowerPrice
+var higherPrice, lowerPrice, higherMl, lowerMl, higherTeor, lowerTeor
 var listaBebidas = drinks()
 var listaTypes = []
 var listaBrands = []
@@ -23,6 +23,29 @@ for (let cont = 0; cont < listaBebidas.length; cont++){
         }
         if (listaBebidas[cont].price < lowerPrice){
             lowerPrice = listaBebidas[cont].price
+        }
+    }
+
+    if (cont==0){
+        higherMl = lowerMl = listaBebidas[cont].volume
+    }
+    else {
+        if (listaBebidas[cont].volume > higherMl){
+            higherMl = listaBebidas[cont].volume
+        }
+        if (listaBebidas[cont].volume < lowerMl){
+            lowerMl = listaBebidas[cont].volume
+        }
+    }
+    if (cont==0){
+        higherTeor = lowerTeor = listaBebidas[cont].alcoholcontent
+    }
+    else {
+        if (listaBebidas[cont].alcoholcontent > higherTeor){
+            higherTeor = listaBebidas[cont].alcoholcontent
+        }
+        if (listaBebidas[cont].alcoholcontent < lowerTeor){
+            lowerTeor = listaBebidas[cont].alcoholcontent
         }
     }
 }
@@ -65,9 +88,53 @@ for (let c = 0; c < 4; c++)
             maximumFractionDigits: 2})+" a R$ "+price.toLocaleString("pt-br", {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2})+"</p>"
+    }    
+}
+
+let aumentoML = (higherMl-lowerMl)/4
+aumentoML = (Math.ceil(aumentoML))
+let ml = Math.floor(lowerMl)
+for (let c = 0; c < 4; c++)
+{
+    let volumeList = document.querySelector("#volume-list")
+    ml += aumentoML
+    if (c == 0)
+    {
+        volumeList.innerHTML += '<p class="filter-item">Até '+ml+'ML</p>'
     }
-    
-    
+    else
+    {
+        if (c != 3){
+            volumeList.innerHTML += '<p class="filter-item">'+(ml-aumentoML)+'ML a '+ml+'ML</p>'
+        }
+        else {
+            volumeList.innerHTML += '<p class="filter-item">'+(ml-aumentoML)+'ML a '+higherMl+'ML</p>'
+        }
+        
+    }    
+}
+
+let aumentoTeor = (higherTeor-lowerTeor)/4
+aumentoTeor = (Math.ceil(aumentoTeor))
+let teor = Math.floor(lowerTeor)
+for (let c = 0; c < 4; c++)
+{
+    let volumeList = document.querySelector("#alcohol-list")
+    teor += aumentoTeor
+    if (c == 0)
+    {
+        volumeList.innerHTML += '<p class="filter-item">Até '+teor+' ABV</p>'
+    }
+    else
+    {
+        if (c != 3){
+            volumeList.innerHTML += '<p class="filter-item">'+(teor-aumentoTeor)+' ABV a '+teor+' ABV</p>'
+        }
+        else {
+            volumeList.innerHTML += '<p class="filter-item">'+(teor-aumentoTeor)+' ABV a '+higherTeor+' ABV</p>'
+        }
+        
+    }    
 }
 export function filterApplication(id)
 {
