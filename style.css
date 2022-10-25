@@ -247,6 +247,11 @@ main {
     height: 12rem;
     
 }
+
+.alcohol-number{
+    color: var(--darkgray);
+}
+
 .product h3, .product fieldset{
     color: var(--blue);
 }

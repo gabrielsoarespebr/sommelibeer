@@ -36,6 +36,7 @@ function arrowFlow() //Cria lista de bebidas
         pagina.innerHTML += '<div class="product" data-name="p-'+(c+1)+'">'+
         '<img src='+bebidas[c].img+' alt="Produto 1">'+
         '<h3>'+ bebidas[c].name + '</h3>'+ 
+        '<p class="alcohol-number">Teor alcoólico: '+bebidas[c].alcoholcontent.toFixed(1)+'</p>'+
         '<div class="price-rating">'+
         '<span class="price">R$'+ bebidas[c].price.toFixed(2).replace(".", ",")+'</span>'+
         '<span class="rating">'+ bebidas[c].rating.toFixed(1)+'</span>'+ 
