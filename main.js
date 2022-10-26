@@ -3,10 +3,6 @@ import {drinks} from './scripts/drinks.js'
 import {filterApplication} from "./scripts/filters.js"
 
 var listaBebidas = drinks()
-
-
-
-const ordering = document.querySelector("#orderBy")
 const actionsByChoose = 
     {
         relevance_desc: listaBebidas.slice(0),
@@ -37,14 +33,59 @@ for (let indice = 0; indice < filterOption.length; indice++)
 for (let indice = 0; indice < itemsList.length; indice++){
     itemsList[indice].style.display = "none"
 }
+
+const ordering = document.querySelector("#orderBy")
 ordering.addEventListener("change", function(){changeOrder()})
 
 for (let cont = 0; cont < selectOption.length; cont++){
-    selectOption[cont].addEventListener("click", function(){addFilter(selectOption[cont].textContent)})
+    selectOption[cont].addEventListener("click", function(){addFilter(selectOption[cont])})
 }
 
 function addFilter(option){
-    for (let indice = 0; indice < option.length; indice++){
-        console.log(option[indice])
+    //option.style.color = "var(--orange)"
+    colorSelected(option.id)
+}
+
+function colorSelected(id){
+    if (id.split("-")[2] == "price"){
+        let priceList = document.querySelector("#price-list").querySelectorAll('.filter-item')
+        for (let cont = 0; cont < priceList.length; cont++){
+            if (priceList[cont].id == id){
+                priceList[cont].style.color = "var(--orange)"
+                priceList[cont].style.fontWeight = "bold"
+            }
+            else {
+                priceList[cont].style.color = "var(--black)"
+                priceList[cont].style.fontWeight = "normal"
+            }
+
+        }
     }
+    if (id.split("-")[2] == "ml"){
+        let volumeList = document.querySelector("#volume-list").querySelectorAll('.filter-item')
+        for (let cont = 0; cont < volumeList.length; cont++){
+            if (volumeList[cont].id == id){
+                volumeList[cont].style.color = "var(--orange)"
+                volumeList[cont].style.fontWeight = "bold"
+            }
+            else {
+                volumeList[cont].style.color = "var(--black)"
+                volumeList[cont].style.fontWeight = "normal"
+            }
+        }
+    }
+    if (id.split("-")[2] == "teor"){
+        let alcoholList = document.querySelector("#alcohol-list").querySelectorAll('.filter-item')
+        for (let cont = 0; cont < alcoholList.length; cont++){
+            if (alcoholList[cont].id == id){
+                alcoholList[cont].style.color = "var(--orange)"
+                alcoholList[cont].style.fontWeight = "bold"
+            }
+            else {
+                alcoholList[cont].style.color = "var(--black)"
+                alcoholList[cont].style.fontWeight = "normal"
+            }
+        }
+    }
+
 }

@@ -52,8 +52,6 @@ for (let cont = 0; cont < listaBebidas.length; cont++){
 
 listaTypes.sort()
 listaBrands.sort()
-console.log(listaBrands)
-console.log(listaTypes)
 let maior = Math.max(listaTypes.length, listaBrands.length)
 let brands = document.querySelector("#brand-list")
 let types = document.querySelector("#type-list")
@@ -77,21 +75,21 @@ for (let c = 0; c < 4; c++)
     price += aumentoPrice
     if (c == 0)
     {
-        priceList.innerHTML += '<p class="filter-item" id="00-'+price+'">Até R$ '+price.toLocaleString("pt-br", {
+        priceList.innerHTML += '<p class="filter-item" id="00-'+price+'-price">Até R$ '+price.toLocaleString("pt-br", {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2})+"</p>"
     }
     else
     {
         if (c != 3){
-            priceList.innerHTML += '<p class="filter-item" id="'+(price-aumentoPrice)+'-'+price+'">R$ '+(price-aumentoPrice).toLocaleString("pt-br", {
+            priceList.innerHTML += '<p class="filter-item" id="'+(price-aumentoPrice)+'-'+price+'-price">R$ '+(price-aumentoPrice).toLocaleString("pt-br", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2})+" a R$ "+price.toLocaleString("pt-br", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2})+"</p>"
         }
         else {
-            priceList.innerHTML += '<p class="filter-item" id="'+(price-aumentoPrice)+'-'+higherPrice+'">R$ '+(price-aumentoPrice).toLocaleString("pt-br", {
+            priceList.innerHTML += '<p class="filter-item" id="'+(price-aumentoPrice)+'-'+higherPrice+'-price">R$ '+(price-aumentoPrice).toLocaleString("pt-br", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2})+" a R$ "+higherPrice.toLocaleString("pt-br", {
                 minimumFractionDigits: 2,
@@ -109,15 +107,15 @@ for (let c = 0; c < 4; c++)
     ml += aumentoMl
     if (c == 0)
     {
-        volumeList.innerHTML += '<p class="filter-item" id="00-'+ml+'">Até '+ml+'ML</p>'
+        volumeList.innerHTML += '<p class="filter-item" id="00-'+ml+'-ml">Até '+ml+'ML</p>'
     }
     else
     {
         if (c != 3){
-            volumeList.innerHTML += '<p class="filter-item" id="'+(ml-aumentoMl)+'-'+ml+'">'+(ml-aumentoMl)+'ML a '+ml+'ML</p>'
+            volumeList.innerHTML += '<p class="filter-item" id="'+(ml-aumentoMl)+'-'+ml+'-ml">'+(ml-aumentoMl)+'ML a '+ml+'ML</p>'
         }
         else {
-            volumeList.innerHTML += '<p class="filter-item" id="'+(ml-aumentoMl)+'-'+higherMl+'">'+(ml-aumentoMl)+'ML a '+higherMl+'ML</p>'
+            volumeList.innerHTML += '<p class="filter-item" id="'+(ml-aumentoMl)+'-'+higherMl+'-ml">'+(ml-aumentoMl)+'ML a '+higherMl+'ML</p>'
         }
         
     }    
@@ -132,15 +130,15 @@ for (let c = 0; c < 4; c++)
     teor += aumentoTeor
     if (c == 0)
     {
-        volumeList.innerHTML += '<p class="filter-item" id="00-'+price+'">Até '+teor+' ABV</p>'
+        volumeList.innerHTML += '<p class="filter-item" id="00-'+teor+'-teor">Até '+teor+' ABV</p>'
     }
     else
     {
         if (c != 3){
-            volumeList.innerHTML += '<p class="filter-item">'+(teor-aumentoTeor)+' ABV a '+teor+' ABV</p>'
+            volumeList.innerHTML += '<p class="filter-item" id="'+(teor-aumentoTeor)+'-'+teor+'-teor">'+(teor-aumentoTeor)+' ABV a '+teor+' ABV</p>'
         }
         else {
-            volumeList.innerHTML += '<p class="filter-item">'+(teor-aumentoTeor)+' ABV a '+higherTeor+' ABV</p>'
+            volumeList.innerHTML += '<p class="filter-item" id="'+(teor-aumentoTeor)+'-'+higherTeor+'-teor">'+(teor-aumentoTeor)+' ABV a '+higherTeor+' ABV</p>'
         }
         
     }    
