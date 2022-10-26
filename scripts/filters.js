@@ -70,45 +70,54 @@ for (let count = 0; count < maior; count++){
 var total = parseFloat(((higherPrice - lowerPrice)/4).toFixed(2))
 
 let price = Math.floor(lowerPrice) 
-let aumento = Math.ceil(total)  
+let aumentoPrice = Math.ceil(total)  
 for (let c = 0; c < 4; c++)
 {
     let priceList = document.querySelector("#price-list")
-    price += aumento
+    price += aumentoPrice
     if (c == 0)
     {
-        priceList.innerHTML += '<p class="filter-item">Até R$ '+price.toLocaleString("pt-br", {
+        priceList.innerHTML += '<p class="filter-item" id="00-'+price+'">Até R$ '+price.toLocaleString("pt-br", {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2})+"</p>"
-    }
-    else
-    {
-        priceList.innerHTML += '<p class="filter-item">R$ '+(price-aumento).toLocaleString("pt-br", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2})+" a R$ "+price.toLocaleString("pt-br", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2})+"</p>"
-    }    
-}
-
-let aumentoML = (higherMl-lowerMl)/4
-aumentoML = (Math.ceil(aumentoML))
-let ml = Math.floor(lowerMl)
-for (let c = 0; c < 4; c++)
-{
-    let volumeList = document.querySelector("#volume-list")
-    ml += aumentoML
-    if (c == 0)
-    {
-        volumeList.innerHTML += '<p class="filter-item">Até '+ml+'ML</p>'
     }
     else
     {
         if (c != 3){
-            volumeList.innerHTML += '<p class="filter-item">'+(ml-aumentoML)+'ML a '+ml+'ML</p>'
+            priceList.innerHTML += '<p class="filter-item" id="'+(price-aumentoPrice)+'-'+price+'">R$ '+(price-aumentoPrice).toLocaleString("pt-br", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2})+" a R$ "+price.toLocaleString("pt-br", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2})+"</p>"
         }
         else {
-            volumeList.innerHTML += '<p class="filter-item">'+(ml-aumentoML)+'ML a '+higherMl+'ML</p>'
+            priceList.innerHTML += '<p class="filter-item" id="'+(price-aumentoPrice)+'-'+higherPrice+'">R$ '+(price-aumentoPrice).toLocaleString("pt-br", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2})+" a R$ "+higherPrice.toLocaleString("pt-br", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2})+"</p>"
+        }
+    }    
+}
+
+let aumentoMl = (higherMl-lowerMl)/4
+aumentoMl = (Math.ceil(aumentoMl))
+let ml = Math.floor(lowerMl)
+for (let c = 0; c < 4; c++)
+{
+    let volumeList = document.querySelector("#volume-list")
+    ml += aumentoMl
+    if (c == 0)
+    {
+        volumeList.innerHTML += '<p class="filter-item" id="00-'+ml+'">Até '+ml+'ML</p>'
+    }
+    else
+    {
+        if (c != 3){
+            volumeList.innerHTML += '<p class="filter-item" id="'+(ml-aumentoMl)+'-'+ml+'">'+(ml-aumentoMl)+'ML a '+ml+'ML</p>'
+        }
+        else {
+            volumeList.innerHTML += '<p class="filter-item" id="'+(ml-aumentoMl)+'-'+higherMl+'">'+(ml-aumentoMl)+'ML a '+higherMl+'ML</p>'
         }
         
     }    
@@ -123,7 +132,7 @@ for (let c = 0; c < 4; c++)
     teor += aumentoTeor
     if (c == 0)
     {
-        volumeList.innerHTML += '<p class="filter-item">Até '+teor+' ABV</p>'
+        volumeList.innerHTML += '<p class="filter-item" id="00-'+price+'">Até '+teor+' ABV</p>'
     }
     else
     {
@@ -136,6 +145,7 @@ for (let c = 0; c < 4; c++)
         
     }    
 }
+
 export function filterApplication(id)
 {
     

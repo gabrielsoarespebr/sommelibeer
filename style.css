@@ -164,17 +164,17 @@ main {
 
 
 .filter-list {
+    padding: 2% 5% 2% 5%;
     user-select: none;
     border-radius: 0px 0px 5px 10px;
     margin: 0px auto 0px auto;
-    width: 90%;
+    width: 85%;
     background-color: rgb(223, 223, 223);
 
 }
 
 .filter-item{
-    text-indent: 1ch;
-    display: flex;
+    display:table;
 }
 
 .filter-item:hover {
@@ -239,7 +239,7 @@ main {
 }
 
 .product:hover {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
 
