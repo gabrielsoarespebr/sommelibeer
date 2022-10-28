@@ -1,38 +1,36 @@
-import {drinksFlow} from './scripts/dinamics.js'
-import {drinks} from './scripts/drinks.js'
-import {filterApplication} from "./scripts/filters.js"
+import {orderProductGrid} from './scripts/dinamics.js'
+import {changeOrder} from './scripts/orderFilter.js'
+import {filterDisplayChanger} from "./scripts/visualEffects.js"
+import {auxFlowRun} from './scripts/dinamics.js' 
+import {specifyFilterCreator} from './scripts/filters.js'
 
-var listaBebidas = drinks()
-const actionsByChoose = 
+
+function addListeners(){
+    orderOption.addEventListener("change", function(){changeOrder(orderOption.value)})
+
+    document.querySelector(".arrow-right").addEventListener("click", function(){auxFlowRun("next")})
+    document.querySelector(".arrow-left").addEventListener("click", function(){auxFlowRun("prev")})
+
+    for (let indice = 0; indice < specifyFilterDisplay.length; indice++)
     {
-        relevance_desc: listaBebidas.slice(0),
-        relevance_asc: listaBebidas.slice(0).reverse(),
-        rating_desc: listaBebidas.slice(0).sort(function(a,b) {return b.rating - a.rating}),
-        rating_asc: listaBebidas.slice(0).sort(function(a,b) {return a.rating - b.rating}), 
-        price_desc: listaBebidas.slice(0).sort(function(a,b) {return b.price - a.price}),
-        price_asc: listaBebidas.slice(0).sort(function(a,b) {return a.price - b.price}),
-        alcool_desc: listaBebidas.slice(0).sort(function(a,b) {return b.alcoholcontent - a.alcoholcontent}),
-        alcool_asc: listaBebidas.slice(0).sort(function(a,b) {return a.alcoholcontent - b.alcoholcontent})
+        specifyFilterDisplay[indice].addEventListener("click", function(){filterDisplayChanger(specifyFilterDisplay[indice].id)})
     }
-function changeOrder(){
-    let selectedOption = ordering.value
-    drinksFlow(actionsByChoose[selectedOption])
-    
 }
 
+const orderOption = document.querySelector("#orderBy")
+const specifyFilterDisplay = document.querySelectorAll(".filter-options-list")
+
+//OnCreate
+addListeners()
+orderProductGrid()
+specifyFilterCreator()
+filterDisplayChanger('all')
 
 
-drinksFlow(listaBebidas)
-const filterOption = document.querySelectorAll(".filter-options-list")
+
+
+/*
 const selectOption = document.querySelectorAll(".filter-item")
-let itemsList = document.querySelectorAll(".filter-list")
-for (let indice = 0; indice < filterOption.length; indice++)
-{
-    filterOption[indice].addEventListener("click", function(){filterApplication(filterOption[indice].id)})
-}
-for (let indice = 0; indice < itemsList.length; indice++){
-    itemsList[indice].style.display = "none"
-}
 
 const ordering = document.querySelector("#orderBy")
 ordering.addEventListener("change", function(){changeOrder()})
@@ -88,4 +86,4 @@ function colorSelected(id){
         }
     }
 
-}
+}*/

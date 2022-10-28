@@ -218,19 +218,18 @@ main {
 #products-list {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    width:auto;
+    margin: 0px auto 0px auto;
 }
 
 
 
 /* GALERIA */
-
-
 /*PRODUTOS*/
 .product{
     width: 20%;
     min-width: 200px;
-    margin: 0px auto 20px auto;
+    margin: 0px 10px 10px 0px;
     text-align: center;
     padding: 15px;
     border-radius: 10px;
