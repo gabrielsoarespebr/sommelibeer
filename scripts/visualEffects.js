@@ -3,10 +3,13 @@ export function filterDisplayChanger(id)
     displayByChoose[id]()
 }
 const displayByChoose = {
-    all(){
+    start(){
         let itemsList = document.querySelectorAll(".filter-list")
         for (let indice = 0; indice < itemsList.length; indice++){
-        itemsList[indice].style.display = "none"}
+            if (indice != 0){
+                itemsList[indice].style.display = "none"}
+            }
+        
     },
     price(){
         let itemsList = document.querySelector("#price-list")
@@ -43,16 +46,25 @@ const displayByChoose = {
 
 export function arrowAnimation(start, end, drinksList) //Deixa a seta cinza quando não puder rolar
 {
-    if (start == 0){
-        document.querySelector(".arrow-left").src = 'images/arrow-left-gray.png'
-        document.querySelector(".arrow-right").src = 'images/arrow-right.png'
+    if (end == -1){
+        document.querySelector(".arrow-left").style.display = 'none'
+        document.querySelector(".arrow-right").style.display = 'none'
     }
-    else if (end != drinksList.length-1){
-        document.querySelector(".arrow-left").src = 'images/arrow-left.png'
-        document.querySelector(".arrow-right").src = 'images/arrow-right.png'
-    }
-    else if (end == drinksList.length-1){
-        document.querySelector(".arrow-left").src = 'images/arrow-left.png'
-        document.querySelector(".arrow-right").src = 'images/arrow-right-gray.png'
+    else{
+        document.querySelector(".arrow-left").style.display = 'inline'
+        document.querySelector(".arrow-right").style.display = 'inline'
+        if (start == 0){
+            document.querySelector(".arrow-left").src = 'images/arrow-left-gray.png'
+        }
+        else {
+            document.querySelector(".arrow-left").src = 'images/arrow-left.png'
+        }
+
+        if (end == drinksList.length-1){
+            document.querySelector(".arrow-right").src = 'images/arrow-right-gray.png'
+        }
+        else{
+            document.querySelector(".arrow-right").src = 'images/arrow-right.png'
+        }
     }
 }

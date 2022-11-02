@@ -1,71 +1,64 @@
-import {drinks} from './drinks.js'
+import { getDrinks, getTypes, getBrands } from "./getters.js"
 var higherPrice, lowerPrice, higherMl, lowerMl, higherTeor, lowerTeor
-var listaBebidas = drinks()
-var listaTypes = []
-var listaBrands = []
+var drinkList = getDrinks()
+var typeList = getTypes()
+var brandList = getBrands()
 
 export function specifyFilterCreator(){
-    for (let cont = 0; cont < listaBebidas.length; cont++){
-    
-        if (!listaTypes.includes(listaBebidas[cont].type)){
-            listaTypes.push(listaBebidas[cont].type)
-        }
-        if (!listaBrands.includes(listaBebidas[cont].brand)){
-            listaBrands.push(listaBebidas[cont].brand)
-        }
-    
-    
+    for (let cont = 0; cont < drinkList.length; cont++){
     
         if (cont==0){
-            higherPrice = lowerPrice = listaBebidas[cont].price
+            higherPrice = lowerPrice = drinkList[cont].price
         }
         else {
-            if (listaBebidas[cont].price > higherPrice){
-                higherPrice = listaBebidas[cont].price
+            if (drinkList[cont].price > higherPrice){
+                higherPrice = drinkList[cont].price
             }
-            if (listaBebidas[cont].price < lowerPrice){
-                lowerPrice = listaBebidas[cont].price
+            if (drinkList[cont].price < lowerPrice){
+                lowerPrice = drinkList[cont].price
             }
         }
     
         if (cont==0){
-            higherMl = lowerMl = listaBebidas[cont].volume
+            higherMl = lowerMl = drinkList[cont].volume
         }
         else {
-            if (listaBebidas[cont].volume > higherMl){
-                higherMl = listaBebidas[cont].volume
+            if (drinkList[cont].volume > higherMl){
+                higherMl = drinkList[cont].volume
             }
-            if (listaBebidas[cont].volume < lowerMl){
-                lowerMl = listaBebidas[cont].volume
+            if (drinkList[cont].volume < lowerMl){
+                lowerMl = drinkList[cont].volume
             }
         }
         if (cont==0){
-            higherTeor = lowerTeor = listaBebidas[cont].alcoholcontent
+            higherTeor = lowerTeor = drinkList[cont].alcoholcontent
         }
         else {
-            if (listaBebidas[cont].alcoholcontent > higherTeor){
-                higherTeor = listaBebidas[cont].alcoholcontent
+            if (drinkList[cont].alcoholcontent > higherTeor){
+                higherTeor = drinkList[cont].alcoholcontent
             }
-            if (listaBebidas[cont].alcoholcontent < lowerTeor){
-                lowerTeor = listaBebidas[cont].alcoholcontent
+            if (drinkList[cont].alcoholcontent < lowerTeor){
+                lowerTeor = drinkList[cont].alcoholcontent
             }
         }
     }
     
-    listaTypes.sort()
-    listaBrands.sort()
-    let maior = Math.max(listaTypes.length, listaBrands.length)
+    typeList.sort()
+    brandList.sort()
+    let maior = Math.max(typeList.length, brandList.length)
     let brands = document.querySelector("#brand-list")
     let types = document.querySelector("#type-list")
     
     for (let count = 0; count < maior; count++){
-        if (count < listaTypes.length) {
-            types.innerHTML += '<div class="check-item-box"><input type="checkbox" name="'+listaTypes[count]+'" id="'+listaTypes[count]+'"><label for="'+listaTypes[count]+'">'+listaTypes[count]+'</label></div>'
+        if (count < typeList.length) {
+            types.innerHTML += '<div class="check-item-box"><input class="filter-type" type="checkbox" name="'+typeList[count]+'" id="'+typeList[count]+'"><label for="'+typeList[count]+'">'+typeList[count]+'</label></div>'
         }
-        if (count < listaBrands.length) {
-            brands.innerHTML += '<div class="check-item-box"><input type="checkbox" name="'+listaBrands[count]+'" id="'+listaBrands[count]+'"><label for="'+listaBrands[count]+'">'+listaBrands[count]+'</label></div>'
+        if (count < brandList.length) {
+            brands.innerHTML += '<div class="check-item-box"><input class="filter-brand" type="checkbox" name="'+brandList[count]+'" id="'+brandList[count]+'"><label for="'+brandList[count]+'">'+brandList[count]+'</label></div>'
         }
     }
+    types.innerHTML += '<button class="filter-button" id="appType">Aplicar</button>'
+    brands.innerHTML += '<button class="filter-button" id="appBrand">Aplicar</button>'
     
     var total = parseFloat(((higherPrice - lowerPrice)/4).toFixed(2))
     
@@ -107,6 +100,7 @@ export function specifyFilterCreator(){
     {
         let volumeList = document.querySelector("#volume-list")
         ml += aumentoMl
+        console.log("Ml: "+ml+" Aumento: "+aumentoMl)
         if (c == 0)
         {
             volumeList.innerHTML += '<p class="filter-item" id="00-'+ml+'-ml">Até '+ml+'ML</p>'
@@ -128,19 +122,19 @@ export function specifyFilterCreator(){
     let teor = Math.floor(lowerTeor)
     for (let c = 0; c < 4; c++)
     {
-        let volumeList = document.querySelector("#alcohol-list")
+        let alcoholList = document.querySelector("#alcohol-list")
         teor += aumentoTeor
         if (c == 0)
         {
-            volumeList.innerHTML += '<p class="filter-item" id="00-'+teor+'-teor">Até '+teor+' ABV</p>'
+            alcoholList.innerHTML += '<p class="filter-item" id="00-'+teor+'-teor">Até '+teor+'%</p>'
         }
         else
         {
             if (c != 3){
-                volumeList.innerHTML += '<p class="filter-item" id="'+(teor-aumentoTeor)+'-'+teor+'-teor">'+(teor-aumentoTeor)+' ABV a '+teor+' ABV</p>'
+                alcoholList.innerHTML += '<p class="filter-item" id="'+(teor-aumentoTeor)+'-'+teor+'-teor">'+(teor-aumentoTeor)+'% a '+teor+'%</p>'
             }
             else {
-                volumeList.innerHTML += '<p class="filter-item" id="'+(teor-aumentoTeor)+'-'+higherTeor+'-teor">'+(teor-aumentoTeor)+' ABV a '+higherTeor+' ABV</p>'
+                alcoholList.innerHTML += '<p class="filter-item" id="'+(teor-aumentoTeor)+'-'+higherTeor+'-teor">'+(teor-aumentoTeor)+'% a '+higherTeor+'%</p>'
             }
             
         }    

@@ -4,6 +4,7 @@
 
 :root {
     --orange: #F9874E;
+    --orange-transparent: rgba(249, 135, 78, 0.7);
     --blue: #373A87;
     --black: #141D34;
     --lightgray: #edeae9;
@@ -13,13 +14,6 @@
 }
 
 /* GERAL */
-.arrow-right, .arrow-left {
-    width: 10%;
-    height: 10%;
-}
-.seta {
-    text-align: center;
-}
 
 * {
     margin: 0;
@@ -27,6 +21,7 @@
 }
 
 body{
+    background-color: #f5f4f4;
     font-family: var(--font-Khand);
     font-size: 1.3rem;
 }
@@ -174,21 +169,30 @@ main {
 }
 
 .filter-item{
-    display:table;
+    display: table;
+    margin-bottom: 5px;
 }
-
+.filter-item::before {
+    content: 'x';
+    background-color: var(--orange-transparent);
+    color: var(--orange-transparent);
+    border-radius: 5px 0px 0px 0px;
+    margin-right: 1ch;
+}
 .filter-item:hover {
     cursor: pointer;
+    color: var(--orange) !important;
 }
 
 
 .filter-stars {
-    margin-left: 10px;
-    padding-top: 10px;
-    width: 50%;
-    font-size: 0.8em;
+    display: inline;
+    width: 60%;
 }
-
+.avaliation-num {
+    color: var(--darkgray);
+    display: inline;
+}
 .filter-stars:hover {
     cursor: pointer;
 }
@@ -206,7 +210,21 @@ main {
     cursor: pointer;
 }
 .filter-list input:hover, .filter-list label:hover {
-    color: var(--orange);
+    color: var(--orange) !important;
+}
+
+.filter-list input:checked{
+    accent-color: var(--orange-transparent);
+}
+
+.filter-button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    padding: 5px;
+}
+.filter-button:hover{
+    cursor: pointer;
 }
 #products-manager {
     display: block;
@@ -219,7 +237,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     width:auto;
-    margin: 0px auto 0px auto;
+    margin: 0px auto 20px auto;
 }
 
 
@@ -298,3 +316,14 @@ main {
     font-size: 1em;
     
 }
+
+.seta {
+    text-align: center;
+    user-select: none;
+}
+
+.arrow-right, .arrow-left {
+    width: 10%;
+    height: 10%;
+}
+
