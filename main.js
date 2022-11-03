@@ -33,14 +33,83 @@ function addListeners(){
     for (let cont = 0; cont < checkButtons.length; cont++){
         checkButtons[cont].addEventListener("click", function(){checkHelper(checkButtons[cont].id)})
     }
+
+    moneyButton.addEventListener("click", function(){
+        let minimo = (document.querySelector("#minimum-price").value).replaceAll(" ", "")
+        let maximo = (document.querySelector("#maximum-price").value).replaceAll(" ", "")
+        minimo = minimo.replaceAll("R$", "")
+        minimo = minimo.replaceAll(",", ".")
+        maximo = maximo.replaceAll("R$", "")
+        maximo = maximo.replaceAll(",", ".")
+        minimo = parseFloat(minimo)
+        maximo = parseFloat(maximo)
+        if (isNaN(minimo)){minimo = -1}
+        if (isNaN(maximo)){maximo = -1}
+
+        
+        if (minimo == -1 && maximo == -1){
+            warningMoney.textContent = "Valores inválidos"
+        }
+        else if (minimo == -1){
+            if (maximo > 0){
+                //Roda do menor valor ao valor maximo definido
+                warningMoney.textContent = ""
+                addFilter("0-"+maximo+"-"+"price")
+            }
+            else {
+                //Da um erro
+                warningMoney.textContent = "Valores inválidos"
+            }
+        }
+        else if (maximo == -1){
+            if (minimo > 0){
+                //Roda do valor minimo definido até o maior valor
+                warningMoney.textContent = ""
+                addFilter(minimo+"-9999"+"-"+"price")
+            }
+            else {
+                //Da um erro
+                warningMoney.textContent = "Valores inválidos"
+            }
+        }
+        else if (minimo > maximo){
+            warningMoney.textContent = "Valores inválidos"
+        }
+        else {
+            warningMoney.textContent = ""
+            addFilter(minimo+"-"+maximo+"-"+"price")
+        }
+        
+    })
+    for (let cont = 0; cont < moneyInput.length; cont++){
+        moneyInput[cont].addEventListener("input", function(){
+            let localInput = (moneyInput[cont].value)
+            localInput = localInput.replaceAll(".", "invalid")
+            localInput = localInput.replace(",", "")
+            localInput = localInput.replaceAll("R$", "")
+            if (isNaN(localInput)){
+                moneyInput[cont].value = ""
+                warningMoney.textContent = "Digite um valor válido"
+    
+            }
+            else {
+                warningMoney.textContent = ""
+                moneyInput[cont].value = "R$" + (moneyInput[cont].value).replaceAll("R$", "")
+            }
+        })
+    }
+
 }
 
 specifyFilterCreator()
 const selectOption = document.querySelectorAll(".filter-item")
 const selectAvaliation = document.querySelectorAll('.filter-stars')
 const checkButtons = document.querySelectorAll(".filter-button")
-
+const moneyInput = document.querySelectorAll(".input-money")
+const moneyButton = document.querySelector(".button-money")
+const warningMoney = document.querySelector(".warning-money")
 const checkTypes = document.querySelectorAll(".filter-type")
+
 for (let cont  = 0; cont < checkTypes.length; cont++){
     checkTypes[cont].checked = "true"
 }

@@ -51,10 +51,10 @@ export function specifyFilterCreator(){
     
     for (let count = 0; count < maior; count++){
         if (count < typeList.length) {
-            types.innerHTML += '<div class="check-item-box"><input class="filter-type" type="checkbox" name="'+typeList[count]+'" id="'+typeList[count]+'"><label for="'+typeList[count]+'">'+typeList[count]+'</label></div>'
+            types.innerHTML += '<div class="check-item-box"><input class="filter-type" type="checkbox" name="'+typeList[count]+'" id="'+typeList[count]+'"><label class="check" for="'+typeList[count]+'">'+typeList[count]+'</label></div>'
         }
         if (count < brandList.length) {
-            brands.innerHTML += '<div class="check-item-box"><input class="filter-brand" type="checkbox" name="'+brandList[count]+'" id="'+brandList[count]+'"><label for="'+brandList[count]+'">'+brandList[count]+'</label></div>'
+            brands.innerHTML += '<div class="check-item-box"><input class="filter-brand" type="checkbox" name="'+brandList[count]+'" id="'+brandList[count]+'"><label class="check" for="'+brandList[count]+'">'+brandList[count]+'</label></div>'
         }
     }
     types.innerHTML += '<button class="filter-button" id="appType">Aplicar</button>'
@@ -100,7 +100,7 @@ export function specifyFilterCreator(){
     {
         let volumeList = document.querySelector("#volume-list")
         ml += aumentoMl
-        console.log("Ml: "+ml+" Aumento: "+aumentoMl)
+        //console.log("Ml: "+ml+" Aumento: "+aumentoMl)
         if (c == 0)
         {
             volumeList.innerHTML += '<p class="filter-item" id="00-'+ml+'-ml">Até '+ml+'ML</p>'

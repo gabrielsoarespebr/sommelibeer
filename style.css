@@ -134,6 +134,25 @@ main {
     width: 90%;
 }
 
+.form-money {
+    margin-bottom: 5px;
+}
+
+.input-money {
+    margin: 0px 0px 0px 0px;
+    display: inline;
+    width: 65px;
+}
+
+.button-money {
+    padding: 5px;
+    display: inline;
+}
+
+.warning-money {
+    color: red;
+    font-size: .7em;
+}
 .filter-options-list {
     user-select: none;
     margin-top: 5px;
@@ -205,12 +224,13 @@ main {
     height: 30px;
 }
 
-.filter-list input, .filter-list label {
-    margin-left: 1ch;
-    cursor: pointer;
+.check{
+    margin-left: 0.3ch;
 }
-.filter-list input:hover, .filter-list label:hover {
-    color: var(--orange) !important;
+
+.check:hover {
+    color: var(--orange);
+    cursor: pointer;
 }
 
 .filter-list input:checked{
