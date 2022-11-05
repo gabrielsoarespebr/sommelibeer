@@ -4,11 +4,10 @@ let defaultDrinks = getDrinks()
 let specifiedDrinks = []
 let filterPrice = [0, 10000] 
 let filterMl = [0, 10000]
-let filterTeor = [0, 1000]
+let filterTeor = [0, 100]
 let filterStar = [0, 5]
 let filterTypes = getTypes()
 let filterBrands = getBrands()
-
 export function specifyFilterChanger(id){
     specifiedDrinks = []
     if (Array.isArray(id)){

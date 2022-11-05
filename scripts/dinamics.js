@@ -14,22 +14,22 @@ export function orderProductGrid(startFlow = start, endFlow=end, list = drinkLis
         pagina.innerHTML = "<p>Sem resultados para sua busca, tente novamente com outros requisitos.</p>"
     }
     else{
-    for (let c=startFlow; c<=endFlow; c++)
-        {
-            pagina.innerHTML += '<div class="product" data-name="p-'+(c+1)+'">'+
-            '<img src='+drinkList[c].img+' alt="Produto 1">'+
-            '<h3>'+ drinkList[c].name + '</h3>'+ 
-            '<p class="alcohol-number">Teor alcoólico: '+drinkList[c].alcoholcontent.toFixed(1)+'</p>'+
-            '<div class="price-rating">'+
-            '<span class="price">R$'+ drinkList[c].price.toFixed(2).replace(".", ",")+'</span>'+
-            '<span class="rating">'+ drinkList[c].rating.toFixed(1)+'</span>'+ 
-            '</div>'+
-            '<fieldset class="comment">'+
-            '<legend>Avaliação em destaque</legend>'+
-            '<p>'+ drinkList[c].comment+'</p>'+
-            '</fieldset>'+
-            '</div>'
-        }
+        for (let c=startFlow; c<=endFlow; c++)
+            {
+                pagina.innerHTML += '<div class="product" data-name="p-'+(c+1)+'">'+
+                '<img src='+drinkList[c].img+' alt="Produto 1">'+
+                '<h3>'+ drinkList[c].name + '</h3>'+ 
+                '<p class="alcohol-number">Teor alcoólico: '+drinkList[c].alcoholcontent.toFixed(1)+'</p>'+
+                '<div class="price-rating">'+
+                '<span class="price">R$'+ drinkList[c].price.toFixed(2).replace(".", ",")+'</span>'+
+                '<span class="rating">'+ drinkList[c].rating.toFixed(1)+'</span>'+ 
+                '</div>'+
+                '<fieldset class="comment">'+
+                '<legend>Avaliação em destaque</legend>'+
+                '<p>'+ drinkList[c].comment+'</p>'+
+                '</fieldset>'+
+                '</div>'
+            }
     }
     //scroll(0, 98)
     arrowAnimation(startFlow, endFlow, drinkList)
@@ -63,7 +63,6 @@ export function auxFlowRun(flow) //Define e configura se esta avançando ou retr
                 scroll(0, 100)
             }
             else{
-                console.log('ajuste')
                 start -= 12
                 end -= auxDifference + 1
                 orderProductGrid(start, end)

@@ -1,12 +1,16 @@
 import {orderProductGrid} from './dinamics.js'
-import { specifyFilterChanger } from './filterChanger.js'
+import { drinks } from './drinks.js'
 
-export function changeOrder(estado){
-    let drinksList = specifyFilterChanger('noChange')
-    let endWithFilter
-    if (drinksList.length >= 12){endWithFilter = 11}
-    else {endWithFilter = drinksList.length - 1}
-    orderProductGrid(0, endWithFilter, actionsByChoose[estado](drinksList))
+var drinkList = drinks()
+var estado = 'relevance_desc'
+var end
+
+export function changeOrder(newDrinkList = drinkList, newEstado = estado){
+    drinkList = newDrinkList
+    estado = newEstado
+    if (drinkList.length >= 12){end = 11}
+    else {end = drinkList.length - 1}
+    orderProductGrid(0, end, actionsByChoose[estado](drinkList))
 }
 
 const actionsByChoose = {

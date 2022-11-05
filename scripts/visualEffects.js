@@ -43,28 +43,40 @@ const displayByChoose = {
     }
 }
 
+var prevPage = document.querySelector(".prev")
+var nextPage = document.querySelector(".next")
+var gridManager = document.querySelectorAll(".grid-manager")
+var total = document.querySelector('#total-grid')
+var actual = document.querySelector('#actual-grid')
 
 export function arrowAnimation(start, end, drinksList) //Deixa a seta cinza quando não puder rolar
 {
+    
+    total.textContent = Math.ceil(drinksList.length/12)
+    actual.textContent = (start+12)/12
     if (end == -1){
-        document.querySelector(".arrow-left").style.display = 'none'
-        document.querySelector(".arrow-right").style.display = 'none'
+        prevPage.style.display = 'none'
+        nextPage.style.display = 'none'
+        gridManager[0].style.display = 'none'
+        gridManager[1].style.display = 'none'
+        gridManager[2].style.display = 'none'
     }
     else{
-        document.querySelector(".arrow-left").style.display = 'inline'
-        document.querySelector(".arrow-right").style.display = 'inline'
+        gridManager[0].style.display = 'inline'
+        gridManager[1].style.display = 'inline'
+        gridManager[2].style.display = 'inline'
         if (start == 0){
-            document.querySelector(".arrow-left").src = 'images/arrow-left-gray.png'
+            prevPage.style.display = 'none'
         }
         else {
-            document.querySelector(".arrow-left").src = 'images/arrow-left.png'
+            prevPage.style.display = 'inline'
         }
 
         if (end == drinksList.length-1){
-            document.querySelector(".arrow-right").src = 'images/arrow-right-gray.png'
+            nextPage.style.display = 'none'
         }
         else{
-            document.querySelector(".arrow-right").src = 'images/arrow-right.png'
+            nextPage.style.display = 'inline'
         }
     }
 }

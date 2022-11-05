@@ -7,10 +7,10 @@ import {specifyFilterChanger} from './scripts/filterChanger.js'
 
 
 function addListeners(){
-    orderOption.addEventListener("change", function(){changeOrder(orderOption.value)})
+    orderOption.addEventListener("change", function(){changeOrder(undefined, orderOption.value)})
 
-    document.querySelector(".arrow-right").addEventListener("click", function(){auxFlowRun("next")})
-    document.querySelector(".arrow-left").addEventListener("click", function(){auxFlowRun("prev")})
+    document.querySelector(".next").addEventListener("click", function(){auxFlowRun("next")})
+    document.querySelector(".prev").addEventListener("click", function(){auxFlowRun("prev")})
 
     for (let indice = 0; indice < specifyFilterDisplay.length; indice++)
     {
@@ -21,10 +21,6 @@ function addListeners(){
         selectOption[cont].addEventListener("click", function(){addFilter(selectOption[cont].id)})
     }
     
-    for (let cont = 0; cont < selectAvaliation.length; cont++){
-        selectAvaliation[cont].addEventListener("click", function(){addFilter(selectAvaliation[cont].id)})
-
-    }
     for (let cont = 0; cont < selectAvaliation.length; cont++){
         selectAvaliation[cont].addEventListener("click", function(){addFilter(selectAvaliation[cont].id)})
 
@@ -159,16 +155,13 @@ function checkHelper(id){
 
 
 function addFilter(option){
-    let drinksWithFilter = specifyFilterChanger(option)
-    let endWithFilter
-    if (drinksWithFilter.length >= 12){endWithFilter = 11}
-    else {endWithFilter = drinksWithFilter.length - 1}
-    orderProductGrid(0, endWithFilter, drinksWithFilter)
-    colorSelected(option)
     if (window.scrollY>= 300){
         scroll(0, 100)
-
     }
+    let drinksWithFilter = specifyFilterChanger(option).slice(0)
+    console.log(drinksWithFilter)
+    changeOrder(drinksWithFilter)
+    colorSelected(option)
 }
 
 
