@@ -49,6 +49,8 @@ export function specifyFilterCreator(){
     let brands = document.querySelector("#brand-list")
     let types = document.querySelector("#type-list")
     
+    types.innerHTML = '<div class="select-all-div"><input type="checkbox" name="select-all-type" id="select-all-type"><label class="select-all-none" for="select-all-type">Selecionar todos</label></div>'
+    brands.innerHTML = '<div class="select-all-div"><input type="checkbox" name="select-all-brand" id="select-all-brand"><label class="select-all-none" for="select-all-brand">Selecionar todos</label></div>'
     for (let count = 0; count < maior; count++){
         if (count < typeList.length) {
             types.innerHTML += '<div class="check-item-box"><input class="filter-type" type="checkbox" name="'+typeList[count]+'" id="'+typeList[count]+'"><label class="check" for="'+typeList[count]+'">'+typeList[count]+'</label></div>'
@@ -57,7 +59,7 @@ export function specifyFilterCreator(){
             brands.innerHTML += '<div class="check-item-box"><input class="filter-brand" type="checkbox" name="'+brandList[count]+'" id="'+brandList[count]+'"><label class="check" for="'+brandList[count]+'">'+brandList[count]+'</label></div>'
         }
     }
-    types.innerHTML += '<button class="filter-button" id="appType">Aplicar</button>'
+    types.innerHTML += '<div class"select-number"><button class="filter-button" id="appType">Aplicar</button></div>'
     brands.innerHTML += '<button class="filter-button" id="appBrand">Aplicar</button>'
     
     var total = parseFloat(((higherPrice - lowerPrice)/4).toFixed(2))
@@ -70,25 +72,25 @@ export function specifyFilterCreator(){
         price += aumentoPrice
         if (c == 0)
         {
-            priceList.innerHTML += '<p class="filter-item" id="00-'+price+'-price">Até R$ '+price.toLocaleString("pt-br", {
+            priceList.innerHTML += '<div><img class="pointer-filter" src="images/arrow-blue.png" alt="Indicado de Seleção"><p class="filter-item" id="00-'+price+'-price">Até R$ '+price.toLocaleString("pt-br", {
                 minimumFractionDigits: 2,
-                maximumFractionDigits: 2})+"</p>"
+                maximumFractionDigits: 2})+'</p><img class="thrash-filter" src="images/thrash-small.png" alt="Remover Seleção"></div>'
         }
         else
         {
             if (c != 3){
-                priceList.innerHTML += '<p class="filter-item" id="'+(price-aumentoPrice)+'-'+price+'-price">R$ '+(price-aumentoPrice).toLocaleString("pt-br", {
+                priceList.innerHTML += '<div><img class="pointer-filter" src="images/arrow-blue.png" alt="Indicado de Seleção"><p class="filter-item" id="'+(price-aumentoPrice)+'-'+price+'-price">R$ '+(price-aumentoPrice).toLocaleString("pt-br", {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2})+" a R$ "+price.toLocaleString("pt-br", {
                     minimumFractionDigits: 2,
-                    maximumFractionDigits: 2})+"</p>"
+                    maximumFractionDigits: 2})+'</p><img class="thrash-filter" src="images/thrash-small.png" alt="Remover Seleção"></div>'
             }
             else {
-                priceList.innerHTML += '<p class="filter-item" id="'+(price-aumentoPrice)+'-'+higherPrice+'-price">R$ '+(price-aumentoPrice).toLocaleString("pt-br", {
+                priceList.innerHTML += '<div><img class="pointer-filter" src="images/arrow-blue.png" alt="Indicado de Seleção"><p class="filter-item" id="'+(price-aumentoPrice)+'-'+higherPrice+'-price">R$ '+(price-aumentoPrice).toLocaleString("pt-br", {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2})+" a R$ "+higherPrice.toLocaleString("pt-br", {
                     minimumFractionDigits: 2,
-                    maximumFractionDigits: 2})+"</p>"
+                    maximumFractionDigits: 2})+'</p><img class="thrash-filter" src="images/thrash-small.png" alt="Remover Seleção"></div>'
             }
         }    
     }
@@ -103,15 +105,15 @@ export function specifyFilterCreator(){
         //console.log("Ml: "+ml+" Aumento: "+aumentoMl)
         if (c == 0)
         {
-            volumeList.innerHTML += '<p class="filter-item" id="00-'+ml+'-ml">Até '+ml+'ML</p>'
+            volumeList.innerHTML += '<div><img class="pointer-filter" src="images/arrow-blue.png" alt="Indicado de Seleção"><p class="filter-item" id="00-'+ml+'-ml">Até '+ml+'ML</p><img class="thrash-filter" src="images/thrash-small.png" alt="Remover Seleção"></div>'
         }
         else
         {
             if (c != 3){
-                volumeList.innerHTML += '<p class="filter-item" id="'+(ml-aumentoMl)+'-'+ml+'-ml">'+(ml-aumentoMl)+'ML a '+ml+'ML</p>'
+                volumeList.innerHTML += '<div><img class="pointer-filter" src="images/arrow-blue.png" alt="Indicado de Seleção"><p class="filter-item" id="'+(ml-aumentoMl)+'-'+ml+'-ml">'+(ml-aumentoMl)+'ML a '+ml+'ML</p><img class="thrash-filter" src="images/thrash-small.png" alt="Remover Seleção"></div>'
             }
             else {
-                volumeList.innerHTML += '<p class="filter-item" id="'+(ml-aumentoMl)+'-'+higherMl+'-ml">'+(ml-aumentoMl)+'ML a '+higherMl+'ML</p>'
+                volumeList.innerHTML += '<div><img class="pointer-filter" src="images/arrow-blue.png" alt="Indicado de Seleção"><p class="filter-item" id="'+(ml-aumentoMl)+'-'+higherMl+'-ml">'+(ml-aumentoMl)+'ML a '+higherMl+'ML</p><img class="thrash-filter" src="images/thrash-small.png" alt="Remover Seleção"></div>'
             }
             
         }    
@@ -126,15 +128,15 @@ export function specifyFilterCreator(){
         teor += aumentoTeor
         if (c == 0)
         {
-            alcoholList.innerHTML += '<p class="filter-item" id="00-'+teor+'-teor">Até '+teor+'%</p>'
+            alcoholList.innerHTML += '<div><img class="pointer-filter" src="images/arrow-blue.png" alt="Indicado de Seleção"><p class="filter-item" id="00-'+teor+'-teor">Até '+teor+'%</p><img class="thrash-filter" src="images/thrash-small.png" alt="Remover Seleção"></div>'
         }
         else
         {
             if (c != 3){
-                alcoholList.innerHTML += '<p class="filter-item" id="'+(teor-aumentoTeor)+'-'+teor+'-teor">'+(teor-aumentoTeor)+'% a '+teor+'%</p>'
+                alcoholList.innerHTML += '<div><img class="pointer-filter" src="images/arrow-blue.png" alt="Indicado de Seleção"><p class="filter-item" id="'+(teor-aumentoTeor)+'-'+teor+'-teor">'+(teor-aumentoTeor)+'% a '+teor+'%</p><img class="thrash-filter" src="images/thrash-small.png" alt="Remover Seleção"></div>'
             }
             else {
-                alcoholList.innerHTML += '<p class="filter-item" id="'+(teor-aumentoTeor)+'-'+higherTeor+'-teor">'+(teor-aumentoTeor)+'% a '+higherTeor+'%</p>'
+                alcoholList.innerHTML += '<div><img class="pointer-filter" src="images/arrow-blue.png" alt="Indicado de Seleção"><p class="filter-item" id="'+(teor-aumentoTeor)+'-'+higherTeor+'-teor">'+(teor-aumentoTeor)+'% a '+higherTeor+'%</p><img class="thrash-filter" src="images/thrash-small.png" alt="Remover Seleção"></div>'
             }
             
         }    

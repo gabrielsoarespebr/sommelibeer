@@ -4,8 +4,10 @@
 
 :root {
     --orange: #F9874E;
+    --orange-darker: rgb(216, 116, 66);
     --orange-transparent: rgba(249, 135, 78, 0.7);
     --blue: #373A87;
+    --blue-darker: #2e306e;
     --black: #141D34;
     --lightgray: #edeae9;
     --darkgray: #8B8988;
@@ -104,8 +106,57 @@ main {
     display: block;
     flex-wrap: wrap;
 }
+#orderBy {
+    border-radius: 5px;
+    text-indent: 0.2ch;
+    
+}
+
+
 
 /* FILTRO */
+.info-select {
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 10%;
+    font-size: smaller;
+    display: none;
+    user-select: none;
+    margin: 2px;
+    padding: 0px 10px 0px 10px;
+}
+
+.info-select:hover {
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+#button-clean {
+    margin-top: 10px;
+    width: 90%;
+}
+#button-clean-filter {
+    margin: auto;
+    width: 90%;
+    height: 40px;
+    margin-bottom: 5px;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 2.5px;
+    border: 1px solid transparent;
+}
+
+#button-clean-filter:hover {
+    cursor: pointer;
+    background-color: var(--blue-darker);
+}
+
+#button-clean-filter:active {
+    box-shadow: 0 1px var(--blue-darker);
+    background-color: var(--blue);
+    transform: translateY(1px);
+}
+
+
 .filter-section{
     margin-bottom: 20px;
     padding-right: 1%;
@@ -139,17 +190,38 @@ main {
 }
 
 .input-money {
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+    padding: 2px 2px 2px 5px;
     margin: 0px 0px 0px 0px;
-    display: inline;
-    width: 65px;
+    width: 95%;
+    display: block;
+    margin-bottom: 5px;
 }
 
 .button-money {
+    border: 0px;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 5px;
     padding: 5px;
     display: inline;
+    margin-top: 5px;
+    box-shadow: 0 2px var(--blue);
+}
+.button-money:hover {
+    cursor: pointer;
+    background-color: var(--blue-darker);
 }
 
+.button-money:active {
+    box-shadow: 0 1px var(--blue-darker);
+    background-color: var(--blue);
+    transform: translateY(1px);
+}
 .warning-money {
+    display: inline;
+    margin-top: 5px;
     color: red;
     font-size: .7em;
 }
@@ -166,7 +238,7 @@ main {
 }
 
 .filter-options-list:hover {
-    border: 2.5px dashed var(--blue);
+    border: 2.5px solid var(--blue);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
@@ -175,10 +247,31 @@ main {
     margin-top: 10px;
 }
 
+.pointer-filter {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateY(-2px);
 
+}
+
+.filter-list div{
+    position: relative;
+}
+
+.thrash-filter {
+    position: absolute;
+    right: 0%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    margin-left: 4px;
+    display: inline;
+}
+.thrash-filter:hover {
+    cursor: pointer;
+}
 
 .filter-list {
-    padding: 2% 5% 2% 5%;
+    padding: 5% 5% 2% 5%;
     user-select: none;
     border-radius: 0px 0px 5px 10px;
     margin: 0px auto 0px auto;
@@ -188,16 +281,16 @@ main {
 }
 
 .filter-item{
-    display: table;
-    margin-bottom: 5px;
+    display: inline;
+    text-align: center;
 }
-.filter-item::before {
+/*.filter-item::before {
     content: 'x';
     background-color: var(--orange-transparent);
     color: var(--orange-transparent);
     border-radius: 5px 0px 0px 0px;
     margin-right: 1ch;
-}
+}*/
 .filter-item:hover {
     cursor: pointer;
     color: var(--orange) !important;
@@ -238,12 +331,45 @@ main {
 }
 
 .filter-button {
-    margin-top: 5px;
+    display: inline;
+    width: 40%;
     margin-bottom: 5px;
     margin-left: 5px;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 5px;
     padding: 5px;
+    margin-top: 10px;
+    border: 1px solid transparent;
+
 }
 .filter-button:hover{
+    cursor: pointer;
+    background-color: var(--blue-darker);
+}
+.filter-button:active {
+    box-shadow: 0 1px var(--blue-darker);
+    background-color: var(--blue);
+    transform: translateY(1px);
+}
+
+.select-all-div {
+    position: relative;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
+}
+
+.select-all-none {
+    position: absolute;
+    top: 40%;
+    transform: translate(0%, -50%);
+    display: inline;
+    text-align: start;
+    margin-left: 0.3ch;
+    color: var(--black);
+    
+}
+.select-all-none:hover {
     cursor: pointer;
 }
 #products-manager {
@@ -260,6 +386,14 @@ main {
     margin: 0px auto 20px auto;
 }
 
+
+.quit-option {
+    display: inline;
+    background-color: #c4c2c2;
+    border-radius: 5px;
+    padding: 0px 10px 0px 1px;
+    font-size: .7em;
+}
 
 
 /* GALERIA */

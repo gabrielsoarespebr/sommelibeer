@@ -12,6 +12,9 @@ function addListeners(){
     document.querySelector(".next").addEventListener("click", function(){auxFlowRun("next")})
     document.querySelector(".prev").addEventListener("click", function(){auxFlowRun("prev")})
 
+    selectType.addEventListener("change", function(){selectAllType()})
+    selectBrand.addEventListener("change", function(){selectAllBrand()})
+
     for (let indice = 0; indice < specifyFilterDisplay.length; indice++)
     {
         specifyFilterDisplay[indice].addEventListener("click", function(){filterDisplayChanger(specifyFilterDisplay[indice].id)})
@@ -84,8 +87,7 @@ function addListeners(){
             localInput = localInput.replace(",", "")
             localInput = localInput.replaceAll("R$", "")
             if (isNaN(localInput)){
-                moneyInput[cont].value = ""
-                warningMoney.textContent = "Digite um valor válido"
+                moneyInput[cont].value = moneyInput[cont].value.slice(0, -1)
     
             }
             else {
@@ -98,6 +100,10 @@ function addListeners(){
 }
 
 specifyFilterCreator()
+const selectType = document.querySelector("#select-all-type")
+const selectBrand = document.querySelector("#select-all-brand")
+selectType.checked = true
+selectBrand.checked = true
 const selectOption = document.querySelectorAll(".filter-item")
 const selectAvaliation = document.querySelectorAll('.filter-stars')
 const checkButtons = document.querySelectorAll(".filter-button")
@@ -105,17 +111,43 @@ const moneyInput = document.querySelectorAll(".input-money")
 const moneyButton = document.querySelector(".button-money")
 const warningMoney = document.querySelector(".warning-money")
 const checkTypes = document.querySelectorAll(".filter-type")
-
-for (let cont  = 0; cont < checkTypes.length; cont++){
-    checkTypes[cont].checked = "true"
-}
-
 const checkBrand = document.querySelectorAll(".filter-brand")
-for (let cont  = 0; cont < checkBrand.length; cont++){
-    checkBrand[cont].checked = "true"
+
+let imgPointer = document.querySelectorAll('.pointer-filter')
+let imgThrash = document.querySelectorAll('.thrash-filter')
+
+for (let cont = 0; cont < imgPointer.length; cont++){
+    imgPointer[cont].style.display = 'none'
+    imgThrash[cont].style.display = 'none'
 }
+
+let condType = false
+let condBrand = false
+
+function selectAllType(){
+    if (condType){condType=false}
+    else{condType=true}
+    for (let cont  = 0; cont < checkTypes.length; cont++){
+        checkTypes[cont].checked = condType
+    }
+}
+function selectAllBrand(){
+    if (condBrand){condBrand=false}
+    else{condBrand=true}
+    for (let cont  = 0; cont < checkBrand.length; cont++){
+        checkBrand[cont].checked = condBrand
+    }
+}
+
+selectAllBrand()
+selectAllType()
+
+
 const orderOption = document.querySelector("#orderBy")
 const specifyFilterDisplay = document.querySelectorAll(".filter-options-list")
+let cleanFilterBtn = document.querySelector('#button-clean-filter')
+cleanFilterBtn.style.display = 'none'
+
 
 //OnCreate
 addListeners()
@@ -155,13 +187,12 @@ function checkHelper(id){
 
 
 function addFilter(option){
-    if (window.scrollY>= 300){
-        scroll(0, 100)
-    }
+    scroll(0, 0)
     let drinksWithFilter = specifyFilterChanger(option).slice(0)
-    console.log(drinksWithFilter)
     changeOrder(drinksWithFilter)
     colorSelected(option)
+    cleanFilterBtn.style.display = 'block'
+    
 }
 
 
@@ -170,12 +201,25 @@ function addFilter(option){
 function colorSelected(id){
     if (!Array.isArray(id)){
         if (id.split("-")[2] == "price"){
+
+            /*let box = document.querySelectorAll(".filter-box")
+            for (let cont = 0; cont < box.length; cont++){
+                if (box[cont].querySelector('.filter-options-list').id == 'price'){
+                    box[cont].style.display = 'none'
+                }
+            }*/
             let priceList = document.querySelector("#price-list").querySelectorAll('.filter-item')
+            let imgPointer = document.querySelectorAll('.pointer-filter')
+            let imgThrash = document.querySelectorAll('.thrash-filter')
             for (let cont = 0; cont < priceList.length; cont++){
                 if (priceList[cont].id == id){
+                    imgPointer[cont].style.display = 'inline'
+                    imgThrash[cont].style.display = 'inline'
                     priceList[cont].style.color = "var(--orange)"
                 }
                 else {
+                    imgPointer[cont].style.display = 'none'
+                    imgThrash[cont].style.display = 'none'
                     priceList[cont].style.color = "var(--black)"
                 }
 
@@ -183,22 +227,34 @@ function colorSelected(id){
         }
         if (id.split("-")[2] == "ml"){
             let volumeList = document.querySelector("#volume-list").querySelectorAll('.filter-item')
+            let imgPointer = document.querySelector("#volume-list").querySelectorAll('.pointer-filter')
+            let imgThrash = document.querySelector("#volume-list").querySelectorAll('.thrash-filter')
             for (let cont = 0; cont < volumeList.length; cont++){
-                if (volumeList[cont].id == id){
+                if (volumeList[cont].id == id){ 
+                    imgPointer[cont].style.display = 'inline'
+                    imgThrash[cont].style.display = 'inline'
                     volumeList[cont].style.color = "var(--orange)" 
                 }
                 else {
+                    imgPointer[cont].style.display = 'none'
+                    imgThrash[cont].style.display = 'none'
                     volumeList[cont].style.color = "var(--black)"
                 }
             }
         }
         if (id.split("-")[2] == "teor"){
             let alcoholList = document.querySelector("#alcohol-list").querySelectorAll('.filter-item')
+            let imgPointer = document.querySelector("#alcohol-list").querySelectorAll('.pointer-filter')
+            let imgThrash = document.querySelector("#alcohol-list").querySelectorAll('.thrash-filter')
             for (let cont = 0; cont < alcoholList.length; cont++){
                 if (alcoholList[cont].id == id){
+                    imgPointer[cont].style.display = 'inline'
+                    imgThrash[cont].style.display = 'inline'
                     alcoholList[cont].style.color = "var(--orange)"
                 }
                 else {
+                    imgPointer[cont].style.display = 'none'
+                    imgThrash[cont].style.display = 'none' 
                     alcoholList[cont].style.color = "var(--black)"
                 }
             }

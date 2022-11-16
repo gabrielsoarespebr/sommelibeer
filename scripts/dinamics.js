@@ -31,7 +31,6 @@ export function orderProductGrid(startFlow = start, endFlow=end, list = drinkLis
                 '</div>'
             }
     }
-    //scroll(0, 98)
     arrowAnimation(startFlow, endFlow, drinkList)
 }
 
@@ -60,13 +59,11 @@ export function auxFlowRun(flow) //Define e configura se esta avançando ou retr
                 start -= 12
                 end -= 12
                 orderProductGrid(start, end)
-                scroll(0, 100)
             }
             else{
                 start -= 12
                 end -= auxDifference + 1
                 orderProductGrid(start, end)
-                scroll(0, 98)
             }
         }
     }

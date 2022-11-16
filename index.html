@@ -50,9 +50,17 @@
             </select>
         </section> <!-- .filter-section -->
 
+        
         <section id="content">
-
+            
             <aside id="filter-options">
+                <p class="info-select" id="price-info">Preço</p>
+                <p class="info-select" id="star-info">Avaliação</p>
+                <p class="info-select" id="ml-info">Volume</p>
+                <p class="info-select" id="type-info">Tipo</p>
+                <p class="info-select" id="brand-info">Marca</p>
+                <p class="info-select" id="teor-info">Teor</p>
+                <div id="button-clean"><button id="button-clean-filter">Limpar Filtros</button></div>
                 <div class="filter-box">
                     <p class="filter-options-list" id="price">Preço</p>
                     <div class="filter-list" id="price-list">
@@ -60,33 +68,38 @@
                         <form class="form-money" method="dialog" autocomplete="off">
                             <input class="input-money" type="text" name="minimum-price" id="minimum-price" step="any" placeholder="min.">
                             <input class="input-money" type="text" name="maximum-price" id="maximum-price" step="any" placeholder="max.">
-                            <button class="button-money">Ir</button>
+                            <button class="button-money">Buscar</button>
                             <p class="warning-money"></p>
                         </form>
                     </div>
                 </div>
-
                 <div class="filter-box">
                     <p class="filter-options-list" id="avaliation">Avaliação</p>
                     <div class="filter-list" id="avaliation-list">
                         <div>
                             <img class="filter-stars" id="1-5-star" src="images/star1.png" alt="1 estrela"></img>
-                            <!--<p class="avaliation-num" id="star1-num">(1.657)</p>-->
+                            <p class="avaliation-num" id="star1-num">(1.657)</p>
                         </div>
                         <div>
                             <img class="filter-stars" id="2-5-star" src="images/star2.png" alt="2 estrelas"></img>
-                            <!--<p class="avaliation-num" id="star2-num">(98)</p>-->
+                            <p class="avaliation-num" id="star2-num">(98)</p>
                         </div>
                         <div>
                             <img class="filter-stars" id="3-5-star" src="images/star3.png" alt="3 estrelas"></img>
-                            <!--<p class="avaliation-num" id="star3-num">(513)</p>-->
+                            <p class="avaliation-num" id="star3-num">(513)</p>
                         </div>
                         <div>
                             <img class="filter-stars" id="4-5-star" src="images/star4.png" alt="4 estrelas"></img>
-                            <!--<p class="avaliation-num" id="star4-num">(3)</p>-->
+                            <p class="avaliation-num" id="star4-num">(3)</p>
                         </div>
                     </div>
                 </div>
+
+                <!--<div>
+                    <img src="images/arrow-blue.png" alt="indicador">
+                    <p>Text</p>
+                    <img src="images/arrow-blue.png" alt="Limpar Seleção">
+                </div>-->
 
                 <div class="filter-box">
                     <p class="filter-options-list" id="volume">Volume</p>
@@ -112,6 +125,7 @@
 
             </aside>
 
+            
             <section id="products-manager">
                 <section id="products-list">
                 </section>
