@@ -29,6 +29,12 @@ function addListeners(){
 
     }
 
+    for (let cont = 0; cont < checkTypes.length; cont++){
+        checkTypes[cont].addEventListener("change", function(){changeCheckHelper("type")})
+    }
+    for (let cont = 0; cont < checkBrand.length; cont++){
+        checkBrand[cont].addEventListener("change", function(){changeCheckHelper("brand")})
+    }
     for (let cont = 0; cont < checkButtons.length; cont++){
         checkButtons[cont].addEventListener("click", function(){checkHelper(checkButtons[cont].id)})
     }
@@ -115,32 +121,51 @@ const checkBrand = document.querySelectorAll(".filter-brand")
 
 let imgPointer = document.querySelectorAll('.pointer-filter')
 let imgThrash = document.querySelectorAll('.thrash-filter')
+let imgThrashAvaliation = document.querySelectorAll('.thrash-filter-avaliation')
 
-for (let cont = 0; cont < imgPointer.length; cont++){
-    imgPointer[cont].style.display = 'none'
-    imgThrash[cont].style.display = 'none'
-}
 
-let condType = false
-let condBrand = false
 
 function selectAllType(){
-    if (condType){condType=false}
-    else{condType=true}
+    let cond = true
     for (let cont  = 0; cont < checkTypes.length; cont++){
-        checkTypes[cont].checked = condType
+        if(checkTypes[cont].checked == false){
+            cond = false
+        }
+    }
+    for (let cont  = 0; cont < checkTypes.length; cont++){
+        checkTypes[cont].checked = !cond
+    }
+    if (cond){
+        document.querySelectorAll('.select-all-none')[0].innerText = 'Todos'
+    }
+    else {
+        document.querySelectorAll('.select-all-none')[0].innerText = 'Nenhum'
     }
 }
 function selectAllBrand(){
-    if (condBrand){condBrand=false}
-    else{condBrand=true}
+    let cond = true
     for (let cont  = 0; cont < checkBrand.length; cont++){
-        checkBrand[cont].checked = condBrand
+        if(checkBrand[cont].checked == false){
+            cond = false
+        }
+    }
+    for (let cont  = 0; cont < checkBrand.length; cont++){
+        checkBrand[cont].checked = !cond
+    }
+    if (cond){
+        document.querySelectorAll('.select-all-none')[1].innerText = 'Todos'
+    }
+    else {
+        document.querySelectorAll('.select-all-none')[1].innerText = 'Nenhum'
     }
 }
 
-selectAllBrand()
-selectAllType()
+for (let cont  = 0; cont < checkTypes.length; cont++){
+    checkTypes[cont].checked = true
+}
+for (let cont  = 0; cont < checkBrand.length; cont++){
+    checkBrand[cont].checked = true
+}
 
 
 const orderOption = document.querySelector("#orderBy")
@@ -154,6 +179,39 @@ addListeners()
 orderProductGrid()
 
 filterDisplayChanger('start')
+
+export function changeCheckHelper(id) {
+    if (id == 'type'){
+        let cond = true
+        for (let cont  = 0; cont < checkTypes.length; cont++){
+            if (checkTypes[cont].checked == false){
+                cond = false
+            }
+        }
+        selectType.checked = cond
+        if (cond){
+            document.querySelectorAll('.select-all-none')[0].innerText = "Nenhum"
+        }
+        else {
+            document.querySelectorAll('.select-all-none')[0].innerText = "Todos"
+        }
+    }
+    if (id == 'brand'){
+        let cond = true
+        for (let cont  = 0; cont < checkBrand.length; cont++){
+            if (checkBrand[cont].checked == false){
+                cond = false
+            }
+        }
+        selectBrand.checked = cond
+        if (cond){
+            document.querySelectorAll('.select-all-none')[1].innerText = "Nenhum"
+        }
+        else {
+            document.querySelectorAll('.select-all-none')[1].innerText = "Todos"
+        }
+    }
+}
 
 function checkHelper(id){
     if (id == 'appType'){
@@ -244,8 +302,6 @@ function colorSelected(id){
         }
         if (id.split("-")[2] == "teor"){
             let alcoholList = document.querySelector("#alcohol-list").querySelectorAll('.filter-item')
-            let imgPointer = document.querySelector("#alcohol-list").querySelectorAll('.pointer-filter')
-            let imgThrash = document.querySelector("#alcohol-list").querySelectorAll('.thrash-filter')
             for (let cont = 0; cont < alcoholList.length; cont++){
                 if (alcoholList[cont].id == id){
                     imgPointer[cont].style.display = 'inline'
@@ -264,12 +320,13 @@ function colorSelected(id){
             for (let cont = 0; cont < avaliationList.length; cont++){
                 if (avaliationList[cont].id == id){
                     avaliationList[cont].src = './images/star'+(cont+1)+'Selected.png'
-
-                    avaliationList[cont].style.width = '65%'
+                    avaliationList[cont].style.width = '55%'
+                    imgThrashAvaliation[cont].style.display = 'inline'
                 }
                 else {
                     avaliationList[cont].src = './images/star'+(cont+1)+'.png'
-                    avaliationList[cont].style.width = '60%'
+                    avaliationList[cont].style.width = '50%'
+                    imgThrashAvaliation[cont].style.display = 'none'
                 }
             }
         }

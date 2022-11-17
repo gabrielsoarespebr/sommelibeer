@@ -1,4 +1,5 @@
 import { getDrinks, getTypes, getBrands } from "./getters.js"
+import { changeCheckHelper } from '../main.js'
 
 let defaultDrinks = getDrinks()
 let specifiedDrinks = []
@@ -88,5 +89,7 @@ export function specifyFilterChanger(id){
             checkBrand[cont].checked = 'true'
         }
     }
+    changeCheckHelper('type')
+    changeCheckHelper('brand')
     return specifiedDrinks
 }

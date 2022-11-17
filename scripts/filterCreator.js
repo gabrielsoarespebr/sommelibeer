@@ -1,4 +1,5 @@
 import { getDrinks, getTypes, getBrands } from "./getters.js"
+
 var higherPrice, lowerPrice, higherMl, lowerMl, higherTeor, lowerTeor
 var drinkList = getDrinks()
 var typeList = getTypes()
@@ -49,8 +50,8 @@ export function specifyFilterCreator(){
     let brands = document.querySelector("#brand-list")
     let types = document.querySelector("#type-list")
     
-    types.innerHTML = '<div class="select-all-div"><input type="checkbox" name="select-all-type" id="select-all-type"><label class="select-all-none" for="select-all-type">Selecionar todos</label></div>'
-    brands.innerHTML = '<div class="select-all-div"><input type="checkbox" name="select-all-brand" id="select-all-brand"><label class="select-all-none" for="select-all-brand">Selecionar todos</label></div>'
+    types.innerHTML = '<div class="select-all-div"><input type="checkbox" name="select-all-type" id="select-all-type"><label class="select-all-none" for="select-all-type">Nenhum</label></div>'
+    brands.innerHTML = '<div class="select-all-div"><input type="checkbox" name="select-all-brand" id="select-all-brand"><label class="select-all-none" for="select-all-brand">Nenhum</label></div>'
     for (let count = 0; count < maior; count++){
         if (count < typeList.length) {
             types.innerHTML += '<div class="check-item-box"><input class="filter-type" type="checkbox" name="'+typeList[count]+'" id="'+typeList[count]+'"><label class="check" for="'+typeList[count]+'">'+typeList[count]+'</label></div>'

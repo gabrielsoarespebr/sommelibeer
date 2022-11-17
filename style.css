@@ -248,7 +248,7 @@ main {
 }
 
 .pointer-filter {
-    display: inline-block;
+    display: none;
     vertical-align: middle;
     transform: translateY(-2px);
 
@@ -264,9 +264,25 @@ main {
     top: 45%;
     transform: translate(-50%, -50%);
     margin-left: 4px;
-    display: inline;
+    display: none;
 }
 .thrash-filter:hover {
+    cursor: pointer;
+}
+
+#valiation-list div {
+    position: relative;
+}
+
+.thrash-filter-avaliation {
+    position: absolute;
+    right: 0%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    margin-left: 4px;
+    display: none;
+}
+.thrash-filter-avaliation:hover {
     cursor: pointer;
 }
 
@@ -299,7 +315,7 @@ main {
 
 .filter-stars {
     display: inline;
-    width: 60%;
+    width: 50%;
 }
 .avaliation-num {
     color: var(--darkgray);
