@@ -39,10 +39,10 @@
         <section class="filter-section">
             <label for="orderBy">Ordenar por:</label>
             <select name="orderBy" id="orderBy">
-                <option selected value="relevance_desc">Maior relevância</option>
-                <option value="relevance_asc">Menor relevância</option>
-                <option value="rating_desc">Melhor avaliação</option>
-                <option value="rating_asc">Pior avaliação</option>
+                <!--<option selected value="relevance_desc">Maior relevância</option>
+                <option value="relevance_asc">Menor relevância</option>-->
+                <option selected value="rating_desc">Melhor avaliação</option>
+                <!--<option value="rating_asc">Pior avaliação</option>-->
                 <option value="price_desc">Maior preço</option>
                 <option value="price_asc">Menor preço</option>
                 <option value="alcool_desc">Maior teor alcoólico</option>
@@ -60,9 +60,11 @@
                 <p class="info-select" id="type-info">Tipo</p>
                 <p class="info-select" id="brand-info">Marca</p>
                 <p class="info-select" id="teor-info">Teor</p>
+
                 <div id="button-clean"><button id="button-clean-filter">Limpar Filtros</button></div>
+
                 <div class="filter-box">
-                    <p class="filter-options-list" id="price">Preço</p>
+                    <p class="filter-options-list" id="price">&#10134; Preço</p>
                     <div class="filter-list" id="price-list">
 
                         <form class="form-money" method="dialog" autocomplete="off">
@@ -74,27 +76,27 @@
                     </div>
                 </div>
                 <div class="filter-box">
-                    <p class="filter-options-list" id="avaliation">Avaliação</p>
+                    <p class="filter-options-list" id="avaliation">&#10133; Avaliação</p>
                     <div class="filter-list" id="avaliation-list">
                         <div>
                             <img class="filter-stars" id="1-5-star" src="images/star1.png" alt="1 estrela"></img>
                             <!--<p class="avaliation-num" id="star1-num">(1.657)</p>-->
-                            <img class="thrash-filter-avaliation" src="images/thrash-small.png" alt="Remover Seleção">
+                            <img class="thrash-filter-avaliation" id="thrash-star-0" src="images/thrash-small.png" alt="Remover Seleção">
                         </div>
                         <div>
                             <img class="filter-stars" id="2-5-star" src="images/star2.png" alt="2 estrelas"></img>
                             <!--<p class="avaliation-num" id="star2-num">(98)</p>-->
-                            <img class="thrash-filter-avaliation" src="images/thrash-small.png" alt="Remover Seleção">
+                            <img class="thrash-filter-avaliation" id="thrash-star-1" src="images/thrash-small.png" alt="Remover Seleção">
                         </div>
                         <div>
                             <img class="filter-stars" id="3-5-star" src="images/star3.png" alt="3 estrelas"></img>
                             <!--<p class="avaliation-num" id="star3-num">(513)</p>-->
-                            <img class="thrash-filter-avaliation" src="images/thrash-small.png" alt="Remover Seleção">
+                            <img class="thrash-filter-avaliation" id="thrash-star-2" src="images/thrash-small.png" alt="Remover Seleção">
                         </div>
                         <div>
                             <img class="filter-stars" id="4-5-star" src="images/star4.png" alt="4 estrelas"></img>
                             <!--<p class="avaliation-num" id="star4-num">(3)</p>-->
-                            <img class="thrash-filter-avaliation" src="images/thrash-small.png" alt="Remover Seleção">
+                            <img class="thrash-filter-avaliation" id="thrash-star-3" src="images/thrash-small.png" alt="Remover Seleção">
                         </div>
                     </div>
                 </div>
@@ -106,23 +108,23 @@
                 </div>-->
 
                 <div class="filter-box">
-                    <p class="filter-options-list" id="volume">Volume</p>
+                    <p class="filter-options-list" id="volume">&#10133; Volume</p>
                     <div class="filter-list" id="volume-list"></div>
                 </div>
 
                 <div class="filter-box">
-                    <p class="filter-options-list" id="type">Tipo</p>
+                    <p class="filter-options-list" id="type">&#10133; Tipo</p>
                     <div class="filter-list" id="type-list">
                     </div>
                 </div>
 
                 <div class="filter-box">
-                    <p class="filter-options-list" id="brand">Marcas</p>
+                    <p class="filter-options-list" id="brand">&#10133; Marcas</p>
                     <div class="filter-list" id="brand-list"></div>
                 </div>
 
                 <div class="filter-box">
-                    <p class="filter-options-list" id="alcohol">Teor Alcoólico</p>
+                    <p class="filter-options-list" id="alcohol">&#10133; Teor Alcoólico</p>
                     <div class="filter-list" id="alcohol-list">
                     </div>
                 </div>

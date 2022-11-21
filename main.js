@@ -1,44 +1,45 @@
-import {orderProductGrid} from './scripts/dinamics.js'
-import {changeOrder} from './scripts/orderFilter.js'
-import {filterDisplayChanger} from "./scripts/visualEffects.js"
-import {auxFlowRun} from './scripts/dinamics.js' 
-import {specifyFilterCreator} from './scripts/filterCreator.js'
-import {specifyFilterChanger} from './scripts/filterChanger.js'
-
+import { HomeGrid } from './scripts/classes/HomeGrid.js'
+import { Filter } from "./scripts/classes/Filter.js"
+import { drinks } from './scripts/drinks.js'
 
 function addListeners(){
-    orderOption.addEventListener("change", function(){changeOrder(undefined, orderOption.value)})
-
-    document.querySelector(".next").addEventListener("click", function(){auxFlowRun("next")})
-    document.querySelector(".prev").addEventListener("click", function(){auxFlowRun("prev")})
-
-    selectType.addEventListener("change", function(){selectAllType()})
-    selectBrand.addEventListener("change", function(){selectAllBrand()})
+    selectType.addEventListener("change", function(){filter.selectAllType(checkTypes)})
+    selectBrand.addEventListener("change", function(){filter.selectAllBrand(checkBrands)})
+    
+    cleanAllBtn.addEventListener('click', function(){addFilter('cleanAll')})
 
     for (let indice = 0; indice < specifyFilterDisplay.length; indice++)
     {
-        specifyFilterDisplay[indice].addEventListener("click", function(){filterDisplayChanger(specifyFilterDisplay[indice].id)})
+        specifyFilterDisplay[indice].addEventListener("click", function(){filter.showMenu(specifyFilterDisplay[indice])})
     }
 
     for (let cont = 0; cont < selectOption.length; cont++){
         selectOption[cont].addEventListener("click", function(){addFilter(selectOption[cont].id)})
     }
-    
     for (let cont = 0; cont < selectAvaliation.length; cont++){
         selectAvaliation[cont].addEventListener("click", function(){addFilter(selectAvaliation[cont].id)})
-
     }
 
+    for (let cont = 0; cont < cleanIndividual.length; cont++){
+        cleanIndividual[cont].addEventListener('click', function(){addFilter(cleanIndividual[cont].id)})
+    }
+
+    for (let cont = 0; cont < cleanIndividualAvaliation.length; cont++){
+        cleanIndividualAvaliation[cont].addEventListener('click', function(){addFilter(cleanIndividualAvaliation[cont].id)})
+    }
+
+    //refactor
     for (let cont = 0; cont < checkTypes.length; cont++){
-        checkTypes[cont].addEventListener("change", function(){changeCheckHelper("type")})
+        checkTypes[cont].addEventListener("change", function(){filter.checkAllTest("type")})
     }
-    for (let cont = 0; cont < checkBrand.length; cont++){
-        checkBrand[cont].addEventListener("change", function(){changeCheckHelper("brand")})
+    for (let cont = 0; cont < checkBrands.length; cont++){
+        checkBrands[cont].addEventListener("change", function(){filter.checkAllTest("brand")})
     }
     for (let cont = 0; cont < checkButtons.length; cont++){
         checkButtons[cont].addEventListener("click", function(){checkHelper(checkButtons[cont].id)})
     }
 
+    //refactor
     moneyButton.addEventListener("click", function(){
         let minimo = (document.querySelector("#minimum-price").value).replaceAll(" ", "")
         let maximo = (document.querySelector("#maximum-price").value).replaceAll(" ", "")
@@ -105,7 +106,17 @@ function addListeners(){
 
 }
 
-specifyFilterCreator()
+var grid = new HomeGrid(16, drinks())
+var filter = new Filter(grid)
+filter.defineOptionsRange()
+
+var grid = new HomeGrid(16, drinks())
+
+
+grid.orderGrid()
+grid.addListeners()
+filter.showMenu('start')
+
 const selectType = document.querySelector("#select-all-type")
 const selectBrand = document.querySelector("#select-all-brand")
 selectType.checked = true
@@ -117,101 +128,15 @@ const moneyInput = document.querySelectorAll(".input-money")
 const moneyButton = document.querySelector(".button-money")
 const warningMoney = document.querySelector(".warning-money")
 const checkTypes = document.querySelectorAll(".filter-type")
-const checkBrand = document.querySelectorAll(".filter-brand")
-
-let imgPointer = document.querySelectorAll('.pointer-filter')
-let imgThrash = document.querySelectorAll('.thrash-filter')
-let imgThrashAvaliation = document.querySelectorAll('.thrash-filter-avaliation')
-
-
-
-function selectAllType(){
-    let cond = true
-    for (let cont  = 0; cont < checkTypes.length; cont++){
-        if(checkTypes[cont].checked == false){
-            cond = false
-        }
-    }
-    for (let cont  = 0; cont < checkTypes.length; cont++){
-        checkTypes[cont].checked = !cond
-    }
-    if (cond){
-        document.querySelectorAll('.select-all-none')[0].innerText = 'Todos'
-    }
-    else {
-        document.querySelectorAll('.select-all-none')[0].innerText = 'Nenhum'
-    }
-}
-function selectAllBrand(){
-    let cond = true
-    for (let cont  = 0; cont < checkBrand.length; cont++){
-        if(checkBrand[cont].checked == false){
-            cond = false
-        }
-    }
-    for (let cont  = 0; cont < checkBrand.length; cont++){
-        checkBrand[cont].checked = !cond
-    }
-    if (cond){
-        document.querySelectorAll('.select-all-none')[1].innerText = 'Todos'
-    }
-    else {
-        document.querySelectorAll('.select-all-none')[1].innerText = 'Nenhum'
-    }
-}
-
-for (let cont  = 0; cont < checkTypes.length; cont++){
-    checkTypes[cont].checked = true
-}
-for (let cont  = 0; cont < checkBrand.length; cont++){
-    checkBrand[cont].checked = true
-}
-
-
-const orderOption = document.querySelector("#orderBy")
+const checkBrands = document.querySelectorAll(".filter-brand")
 const specifyFilterDisplay = document.querySelectorAll(".filter-options-list")
-let cleanFilterBtn = document.querySelector('#button-clean-filter')
-cleanFilterBtn.style.display = 'none'
+const cleanAllBtn = document.querySelector('#button-clean-filter')
+const cleanIndividual = document.querySelectorAll('.thrash-filter')
+const cleanIndividualAvaliation = document.querySelectorAll('.thrash-filter-avaliation')
 
-
-//OnCreate
 addListeners()
-orderProductGrid()
 
-filterDisplayChanger('start')
 
-export function changeCheckHelper(id) {
-    if (id == 'type'){
-        let cond = true
-        for (let cont  = 0; cont < checkTypes.length; cont++){
-            if (checkTypes[cont].checked == false){
-                cond = false
-            }
-        }
-        selectType.checked = cond
-        if (cond){
-            document.querySelectorAll('.select-all-none')[0].innerText = "Nenhum"
-        }
-        else {
-            document.querySelectorAll('.select-all-none')[0].innerText = "Todos"
-        }
-    }
-    if (id == 'brand'){
-        let cond = true
-        for (let cont  = 0; cont < checkBrand.length; cont++){
-            if (checkBrand[cont].checked == false){
-                cond = false
-            }
-        }
-        selectBrand.checked = cond
-        if (cond){
-            document.querySelectorAll('.select-all-none')[1].innerText = "Nenhum"
-        }
-        else {
-            document.querySelectorAll('.select-all-none')[1].innerText = "Todos"
-        }
-    }
-}
 
 function checkHelper(id){
     if (id == 'appType'){
@@ -227,10 +152,10 @@ function checkHelper(id){
     }
     if (id == 'appBrand'){
         let drinkBrand = []
-        for (let cont  = 0; cont < checkBrand.length; cont++){
-            if (checkBrand[cont].checked){
-                if(!drinkBrand.includes(checkBrand[cont].id)){
-                    drinkBrand.push(checkBrand[cont].id)
+        for (let cont  = 0; cont < checkBrands.length; cont++){
+            if (checkBrands[cont].checked){
+                if(!drinkBrand.includes(checkBrands[cont].id)){
+                    drinkBrand.push(checkBrands[cont].id)
                 }
             }
         }
@@ -238,101 +163,7 @@ function checkHelper(id){
     }
     
 }
-
-
-
-
-
-
 function addFilter(option){
-    scroll(0, 0)
-    let drinksWithFilter = specifyFilterChanger(option).slice(0)
-    changeOrder(drinksWithFilter)
-    colorSelected(option)
-    cleanFilterBtn.style.display = 'block'
-    
-}
-
-
-
-
-function colorSelected(id){
-    if (!Array.isArray(id)){
-        if (id.split("-")[2] == "price"){
-
-            /*let box = document.querySelectorAll(".filter-box")
-            for (let cont = 0; cont < box.length; cont++){
-                if (box[cont].querySelector('.filter-options-list').id == 'price'){
-                    box[cont].style.display = 'none'
-                }
-            }*/
-            let priceList = document.querySelector("#price-list").querySelectorAll('.filter-item')
-            let imgPointer = document.querySelectorAll('.pointer-filter')
-            let imgThrash = document.querySelectorAll('.thrash-filter')
-            for (let cont = 0; cont < priceList.length; cont++){
-                if (priceList[cont].id == id){
-                    imgPointer[cont].style.display = 'inline'
-                    imgThrash[cont].style.display = 'inline'
-                    priceList[cont].style.color = "var(--orange)"
-                }
-                else {
-                    imgPointer[cont].style.display = 'none'
-                    imgThrash[cont].style.display = 'none'
-                    priceList[cont].style.color = "var(--black)"
-                }
-
-            }
-        }
-        if (id.split("-")[2] == "ml"){
-            let volumeList = document.querySelector("#volume-list").querySelectorAll('.filter-item')
-            let imgPointer = document.querySelector("#volume-list").querySelectorAll('.pointer-filter')
-            let imgThrash = document.querySelector("#volume-list").querySelectorAll('.thrash-filter')
-            for (let cont = 0; cont < volumeList.length; cont++){
-                if (volumeList[cont].id == id){ 
-                    imgPointer[cont].style.display = 'inline'
-                    imgThrash[cont].style.display = 'inline'
-                    volumeList[cont].style.color = "var(--orange)" 
-                }
-                else {
-                    imgPointer[cont].style.display = 'none'
-                    imgThrash[cont].style.display = 'none'
-                    volumeList[cont].style.color = "var(--black)"
-                }
-            }
-        }
-        if (id.split("-")[2] == "teor"){
-            let alcoholList = document.querySelector("#alcohol-list").querySelectorAll('.filter-item')
-            for (let cont = 0; cont < alcoholList.length; cont++){
-                if (alcoholList[cont].id == id){
-                    imgPointer[cont].style.display = 'inline'
-                    imgThrash[cont].style.display = 'inline'
-                    alcoholList[cont].style.color = "var(--orange)"
-                }
-                else {
-                    imgPointer[cont].style.display = 'none'
-                    imgThrash[cont].style.display = 'none' 
-                    alcoholList[cont].style.color = "var(--black)"
-                }
-            }
-        }
-        if (id.split("-")[2] == "star"){
-            let avaliationList = document.querySelectorAll('.filter-stars')
-            for (let cont = 0; cont < avaliationList.length; cont++){
-                if (avaliationList[cont].id == id){
-                    avaliationList[cont].src = './images/star'+(cont+1)+'Selected.png'
-                    avaliationList[cont].style.width = '55%'
-                    imgThrashAvaliation[cont].style.display = 'inline'
-                }
-                else {
-                    avaliationList[cont].src = './images/star'+(cont+1)+'.png'
-                    avaliationList[cont].style.width = '50%'
-                    imgThrashAvaliation[cont].style.display = 'none'
-                }
-            }
-        }
-    }
-}
-
-function checkedVerify(){
-
+    grid.drinkList = filter.specifyFilterChanger(option).slice(0)
+    grid.changeOrder()
 }
