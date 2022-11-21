@@ -110,7 +110,7 @@ var grid = new HomeGrid(16, drinks())
 var filter = new Filter(grid)
 filter.defineOptionsRange()
 
-var grid = new HomeGrid(16, drinks())
+var grid = new HomeGrid(24, drinks())
 
 
 grid.orderGrid()
