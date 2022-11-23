@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sommelibeer</title>
+    <link rel="shortcut icon" href="images/cheers16.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500&family=League+Gothic&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="product.css">
+</head>
+
+<body>
+    <header>
+        <div class="menu-bg">
+            <div class="menu">
+                <div class="menu__logo">
+                    <a href="index.html">
+                        <img class="logotipo logotipo-image" src="images/cheers96.png" alt="logo">
+                        <div class="logotipo logotipo-text">Sommeli<span class="orange-text">beer</span></div>
+                    </a>
+                </div> <!-- .menu__logo -->
+                <form class="menu__search-bar" action="#" method="GET">
+                    <input type="text" name="search" id="search-bar" placeholder="Procurando algo específico?">
+                    <button for="search" class="search-button" type="submit"></button><i id="search"
+                        class="fa-solid fa-magnifying-glass"></i>
+                </form> <!-- .menu__searchbar -->
+                <a class="menu-login" href="login.html">Entrar</a>
+            </div> <!-- .menu -->
+        </div> <!-- .menu-bg -->
+    </header>
+    <aside>
+        <section class="compare-section">
+            <div id="compare-text" onclick="openCloseCompare()">COMPARE<i class="fa-solid fa-not-equal fa-xs"></i></div>
+
+            <div class="compare-list hidden">
+                <input type="search" id="compare-search-bar" placeholder="Insira o produto a comparar">
+                <div id="compare-product-cards">
+                </div>
+            </div>
+        </section> <!-- .compare-section -->
+    </aside>
+    <main class="product-content">
+        <section class="product-container grid1-3">
+            <div class="image-and-price-column">
+                <img class="product-image" src="" alt="Imagem do produto">
+                <div class="price">
+                    <div id="price"></div>
+                    <div id="price-feedback">Preço abaixo do usual</div>
+                </div>
+            </div>
+            <div class="product-description">
+                <div class="top-row">
+                    <h2 class="product-name inline"></h2>
+                    <span class="rating"></span>
+                </div>
+                <div class="specifications grid1-1">
+                    <label class="specification-attribute" for="brand">Marca</label>
+                    <span id="brand" class="specification-value"></span>
+
+                    <label class="specification-attribute" for="volume">Volume</label>
+                    <span id="volume" class="specification-value"></span>
+
+                    <label class="specification-attribute" for="type">Tipo</label>
+                    <span id="type" class="specification-value"></span>
+
+                    <label class="specification-attribute" for="alcoholcontent">Teor alcoólico</label>
+                    <span id="alcoholcontent" class="specification-value"></span>
+
+                    <label class="specification-attribute" for="ibu">IBU (Amargor)</label>
+                    <span id="ibu" class="specification-value"></span>
+
+                    <label class="specification-attribute" for="energyvalue">Valor energético*</label>
+                    <span id="energyvalue" class="specification-value"></span>
+
+                    <label class="specification-attribute" for="carbohydrates">Carboidratos totais*</label>
+                    <span id="carbohydrates" class="specification-value"></span>
+
+                    <label class="specification-attribute" for="allergens">Alergênicos</label>
+                    <span id="allergens" class="specification-value"></span>
+
+                    <label class="specification-attribute" for="ingredients">Ingredientes</label>
+                    <span id="ingredients" class="specification-value"></span>
+
+                    <label class="specification-attribute" for="harmonization">Harmonização</label>
+                    <span id="harmonization" class="specification-value"></span>
+
+                    <p id="nutritionfactslegend">*Valores para 200ml (1 copo)</p>
+                </div> <!-- .specifications -->
+            </div><!-- .product-description -->
+        </section> <!-- .product-container -->
+        <section class="secondary-info">
+            <div class="money-row">
+                <div class="buy-now-section">
+                    <div id="buy-now-text"><i class="fa-sharp fa-solid fa-cart-shopping fa-xs"></i>Compre agora</div>
+                    <div class="stores-list">
+
+
+                    </div> <!-- .stores-list -->
+                </div> <!-- .buy-now-section -->
+
+                <div class="price-history-section">
+                    <div id="price-history-text"><i class="fa-solid fa-file-invoice-dollar"></i>Histórico de preços
+                    </div>
+                    <canvas id="price-chart"></canvas>
+
+                </div> <!-- .buy-now-section -->
+            </div><!-- .money-row -->
+            <div class="comment-section">
+                <div id="comment-text">
+                    <i class="fa-solid fa-comment"></i>Avaliações
+                </div>
+                <div class="comments">
+                    <div>
+                        <img class="user-photo" src="https://thispersondoesnotexist.com/image" alt="Foto do usuário">
+                        <p class="user-name">Usuário(a)</p>
+                        <p class="comment-date">Há 3 dias</p>
+                    </div>
+                    <div>
+                        <div>
+                            <span>
+                                <span class="user-rating">
+                                    <i class="fa-solid fa-beer-mug-empty"></i>
+                                    <i class="fa-solid fa-beer-mug-empty"></i>
+                                    <i class="fa-solid fa-beer-mug-empty"></i>
+                                    <i class="fa-solid fa-beer-mug-empty"></i>
+                                    <i class="fa-solid fa-beer-mug-empty"></i>
+                                </span>
+                            </span>
+                            <span class="comment-reaction">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <i class="fa-solid fa-thumbs-down"></i>
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </span>
+                        </div>
+                        <p class="user-comment"></p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main> <!-- .product-content -->
+
+    <!-- SCRITPS -->
+    <script src="https://kit.fontawesome.com/34690a427f.js" crossorigin="anonymous"></script>
+    <script src="scripts/drinks.js"></script>
+    <script src="scripts/addEspecifications.js"></script>
+    <script src="scripts/stores.js"></script>
+    <script src="scripts/addBuyNowSection.js"></script>
+    <script src="scripts/addCompareSection.js"></script>
+    <script src="scripts/addCommentSection.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts/addPriceHistory.js"></script>
+</body>
+
+</html>
