@@ -11,10 +11,12 @@
 }
 
 /* GERAL */
-.arrow-right, .arrow-left {
+.arrow-right,
+.arrow-left {
     width: 10%;
     height: 10%;
 }
+
 .seta {
     text-align: center;
 }
@@ -24,17 +26,18 @@
     padding: 0;
 }
 
-body{
+body {
     font-family: var(--font-Khand);
     font-size: 1.3rem;
 }
+
 /* MENU */
 .menu-bg {
     background-image: linear-gradient(to bottom, var(--blue), var(--black));
     height: 6rem;
 }
 
-.menu{
+.menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -49,7 +52,7 @@ body{
 
 .logotipo-image {
     height: 5rem;
-    filter:drop-shadow(.05rem .05rem .08rem #141D34);
+    filter: drop-shadow(.05rem .05rem .08rem #141D34);
 }
 
 .logotipo-text {
@@ -65,7 +68,9 @@ body{
     color: var(--orange);
 }
 
-#search-bar, #search-bar:active, #search-bar:hover {
+#search-bar,
+#search-bar:active,
+#search-bar:hover {
     background-color: var(--lightgray);
     color: var(--darkgray);
     font-family: var(--font-Khand);
@@ -77,7 +82,7 @@ body{
     border-style: none;
 }
 
-.fa-magnifying-glass{
+.fa-magnifying-glass {
     color: var(--darkgray);
     margin-left: -2rem;
     width: 5px;
@@ -85,11 +90,11 @@ body{
     cursor: pointer;
 }
 
-.search-button{
+.search-button {
     display: none;
 }
 
-.menu-login{
+.menu-login {
     font-size: 1.6rem;
     color: white;
     text-decoration: none;
@@ -98,8 +103,9 @@ body{
 
 /* FORMULÁRIO */
 
-form[name="register"]{
-    margin-top: 20vh;
+form[name="register"] {
+    margin-top: 10vh;
+    margin-bottom: 50vh;
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -107,7 +113,16 @@ form[name="register"]{
     align-items: center;
 }
 
-form label, .other-options a{
+form div{
+    margin: 10px;
+}
+
+input+label{
+    margin: 30px;
+}
+
+form label,
+.other-options a {
     font-size: 1.6rem;
     text-decoration: none;
     margin-right: 1rem;
@@ -115,23 +130,43 @@ form label, .other-options a{
     color: var(--blue);
 }
 
-form input[type="email"], form input[type="password"]{
+form input {
     font-size: 1.3rem;
     text-decoration: none;
     border-radius: 5px;
 }
 
-.other-options a{
+.other-options a {
     color: var(--darkgray);
 }
 
-input[type="submit"]{
+input[type="submit"], #user-photo-preview label {
     background-color: var(--blue);
     font-size: 1.6rem;
+    font-weight: 400;
     font-family: var(--font-Khand);
     color: white;
     padding: .2rem 1rem;
     border-radius: 10px;
     cursor: pointer;
     border-color: var(--blue);
+}
+
+#user-photo-preview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#user-photo-preview input {
+    display: none;
+}
+
+#user-photo {
+    object-fit: cover;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--blue);
+    margin-bottom: 10px;
 }
