@@ -38,6 +38,7 @@ export class Filter {
 
         this.clearCond = false
         this.cleanIndividual
+        this.result = document.querySelector('#result')
 
         this.menuStates = {
             start(){
@@ -435,11 +436,24 @@ export class Filter {
     }
 
     colorSelected(id){
+        const moneyInput = document.querySelectorAll(".input-money")
+        moneyInput[0].value = ''
+        moneyInput[1].value = ''
         if (id == 'cleanAll'){
             this.cleanFilterBtn.style.display = 'none'
         }
         else if (this.clearCond){
-            this.cleanFilterBtn.style.display = 'none'            
+            this.cleanFilterBtn.style.display = 'none'   
+            this.result.style.display = 'none'         
+        }
+        else {
+            this.result.style.display = 'block'
+            if(this.specifiedDrinks.length == 0){
+                this.result.style.display = 'none'
+            }
+            else {
+                this.result.innerHTML = '<p>'+this.specifiedDrinks.length+' resultados encontrados</p>'
+            }
         }
         if (!Array.isArray(id)){
             if (id.split("-")[2] == "price" || id == 'cleanAll' || (id.split("-")[0]+id.split("-")[1]) == "thrashprice"){
@@ -591,6 +605,7 @@ export class Filter {
         this.filterTypes = getTypes()
         this.filterBrands = getBrands()
 
+        this.result.style.display = 'none'
         this.infoPrice.style.display = 'none' 
         this.infoMl.style.display = 'none' 
         this.infoTeor.style.display = 'none' 

@@ -45,6 +45,8 @@
                 <!--<option value="rating_asc">Pior avaliação</option>-->
                 <option value="price_desc">Maior preço</option>
                 <option value="price_asc">Menor preço</option>
+                <option value="volume_desc">Maior volume</option>
+                <option value="volume_asc">Menor volume</option>
                 <option value="alcool_desc">Maior teor alcoólico</option>
                 <option value="alcool_asc">Menor teor alcoólico</option>
             </select>
@@ -101,15 +103,17 @@
                     </div>
                 </div>
 
-                <!--<div>
-                    <img src="images/arrow-blue.png" alt="indicador">
-                    <p>Text</p>
-                    <img src="images/arrow-blue.png" alt="Limpar Seleção">
-                </div>-->
 
                 <div class="filter-box">
                     <p class="filter-options-list" id="volume">&#10133; Volume</p>
-                    <div class="filter-list" id="volume-list"></div>
+                    <div class="filter-list" id="volume-list">
+                        <form class="form-volume" method="dialog" autocomplete="off">
+                            <input class="input-volume" type="text" name="minimum-volume" id="minimum-volume" step="any" placeholder="min.">
+                            <input class="input-volume" type="text" name="maximum-volume" id="maximum-volume" step="any" placeholder="max.">
+                            <button class="button-volume">Aplicar</button>
+                            <p class="warning-volume"></p>
+                        </form>
+                    </div>
                 </div>
 
                 <div class="filter-box">
@@ -133,6 +137,7 @@
 
             
             <section id="products-manager">
+                <p id="result"></p>
                 <section id="products-list">
                 </section>
                 <div class="seta">

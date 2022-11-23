@@ -225,6 +225,47 @@ main {
     color: red;
     font-size: .7em;
 }
+
+.form-volume {
+    margin-bottom: 5px;
+}
+
+.input-volume {
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+    padding: 2px 2px 2px 5px;
+    margin: 0px 0px 0px 0px;
+    width: 95%;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.button-volume {
+    border: 0px;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    display: inline;
+    margin-top: 5px;
+    box-shadow: 0 2px var(--blue);
+}
+.button-volume:hover {
+    cursor: pointer;
+    background-color: var(--blue-darker);
+}
+
+.button-volume:active {
+    box-shadow: 0 1px var(--blue-darker);
+    background-color: var(--blue);
+    transform: translateY(1px);
+}
+.warning-volume {
+    display: inline;
+    margin-top: 5px;
+    color: red;
+    font-size: .7em;
+}
 .filter-options-list {
     user-select: none;
     margin-top: 5px;
@@ -400,6 +441,16 @@ main {
     width: 80%;
     height: 90%;
     margin-bottom: 20px;
+}
+
+#result {
+    margin-bottom: 3px;
+    color: var(--darkgray);
+    font-size: large;
+}
+
+.no-result{
+    color: var(--darkgray);
 }
 
 #products-list {

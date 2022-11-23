@@ -23,6 +23,14 @@ export class HomeGrid {
             rating_asc(drinks)
             {
                 return drinks.slice(0).sort(function(a,b) {return a.rating - b.rating})
+            },
+            volume_desc(drinks)
+            {
+                return drinks.slice(0).sort(function(a,b) {return b.volume - a.volume})
+            },
+            volume_asc(drinks)
+            {
+                return drinks.slice(0).sort(function(a,b) {return a.volume - b.volume})
             }, 
             price_desc(drinks)
             {
@@ -51,7 +59,7 @@ export class HomeGrid {
         this.page.innerHTML = ""
         if (this.end == -1)
         {
-            this.page.innerHTML = "<p>Sem resultados para sua busca, tente novamente com outros requisitos.</p>"
+            this.page.innerHTML = '<p class="no-result">Sem resultados para sua busca, tente novamente com outros requisitos.</p>'
         }
         else
         {

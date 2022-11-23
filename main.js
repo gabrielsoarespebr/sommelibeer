@@ -54,39 +54,40 @@ function addListeners(){
 
         
         if (minimo == -1 && maximo == -1){
-            warningMoney.textContent = "Valores inválidos"
+            moneyWarning.textContent = "Valores inválidos"
         }
         else if (minimo == -1){
             if (maximo > 0){
                 //Roda do menor valor ao valor maximo definido
-                warningMoney.textContent = ""
+                moneyWarning.textContent = ""
                 addFilter("0-"+maximo+"-"+"price")
             }
             else {
                 //Da um erro
-                warningMoney.textContent = "Valores inválidos"
+                moneyWarning.textContent = "Valores inválidos"
             }
         }
         else if (maximo == -1){
             if (minimo > 0){
                 //Roda do valor minimo definido até o maior valor
-                warningMoney.textContent = ""
+                moneyWarning.textContent = ""
                 addFilter(minimo+"-9999"+"-"+"price")
             }
             else {
                 //Da um erro
-                warningMoney.textContent = "Valores inválidos"
+                moneyWarning.textContent = "Valores inválidos"
             }
         }
         else if (minimo > maximo){
-            warningMoney.textContent = "Valores inválidos"
+            moneyWarning.textContent = "Valores inválidos"
         }
         else {
-            warningMoney.textContent = ""
+            moneyWarning.textContent = ""
             addFilter(minimo+"-"+maximo+"-"+"price")
         }
         
     })
+
     for (let cont = 0; cont < moneyInput.length; cont++){
         moneyInput[cont].addEventListener("input", function(){
             let localInput = (moneyInput[cont].value)
@@ -98,8 +99,69 @@ function addListeners(){
     
             }
             else {
-                warningMoney.textContent = ""
+                moneyWarning.textContent = ""
                 moneyInput[cont].value = "R$" + (moneyInput[cont].value).replaceAll("R$", "")
+            }
+        })
+    }
+
+    volumeButton.addEventListener("click", function(){
+        let minimo = (document.querySelector("#minimum-volume").value).replaceAll(" ", "")
+        let maximo = (document.querySelector("#maximum-volume").value).replaceAll(" ", "")
+        minimo = minimo.replaceAll(",", ".")
+        maximo = maximo.replaceAll(",", ".")
+        minimo = parseFloat(minimo)
+        maximo = parseFloat(maximo)
+        if (isNaN(minimo)){minimo = -1}
+        if (isNaN(maximo)){maximo = -1}
+
+        
+        if (minimo == -1 && maximo == -1){
+            volumeWarning.textContent = "Valores inválidos"
+        }
+        else if (minimo == -1){
+            if (maximo > 0){
+                //Roda do menor valor ao valor maximo definido
+                moneyWarning.textContent = ""
+                addFilter("0-"+maximo+"-"+"ml")
+            }
+            else {
+                //Da um erro
+                moneyWarning.textContent = "Valores inválidos"
+            }
+        }
+        else if (maximo == -1){
+            if (minimo > 0){
+                //Roda do valor minimo definido até o maior valor
+                volumeWarning.textContent = ""
+                addFilter(minimo+"-9999"+"-"+"ml")
+            }
+            else {
+                //Da um erro
+                volumeWarning.textContent = "Valores inválidos"
+            }
+        }
+        else if (minimo > maximo){
+            volumeWarning.textContent = "Valores inválidos"
+        }
+        else {
+            volumeWarning.textContent = ""
+            addFilter(minimo+"-"+maximo+"-"+"ml")
+        }
+        
+    })
+    for (let cont = 0; cont < volumeInput.length; cont++){
+        volumeInput[cont].addEventListener("input", function(){
+            let localInput = (volumeInput[cont].value)
+            localInput = localInput.replaceAll(".", "invalid")
+            localInput = localInput.replace(",", "")
+            if (isNaN(localInput)){
+                volumeInput[cont].value = volumeInput[cont].value.slice(0, -1)
+    
+            }
+            else {
+                volumeWarning.textContent = ""
+                volumeInput[cont].value = (volumeInput[cont].value)
             }
         })
     }
@@ -126,7 +188,10 @@ const selectAvaliation = document.querySelectorAll('.filter-stars')
 const checkButtons = document.querySelectorAll(".filter-button")
 const moneyInput = document.querySelectorAll(".input-money")
 const moneyButton = document.querySelector(".button-money")
-const warningMoney = document.querySelector(".warning-money")
+const moneyWarning = document.querySelector(".warning-money")
+const volumeInput = document.querySelectorAll(".input-volume")
+const volumeButton = document.querySelector(".button-volume")
+const volumeWarning = document.querySelector(".warning-volume")
 const checkTypes = document.querySelectorAll(".filter-type")
 const checkBrands = document.querySelectorAll(".filter-brand")
 const specifyFilterDisplay = document.querySelectorAll(".filter-options-list")
