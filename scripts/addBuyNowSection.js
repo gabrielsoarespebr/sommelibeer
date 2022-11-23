@@ -1,3 +1,4 @@
+import {stores} from './stores.js' 
 const store = document.querySelector('.stores-list');
 
 let price = document.querySelector('#price');

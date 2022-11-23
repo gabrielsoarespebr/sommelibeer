@@ -1,4 +1,4 @@
-function stores() //Lista de lojas e seus respectivos preços
+export function stores() //Lista de lojas e seus respectivos preços
 {
     let store0001 = { name: "Big Bompreço", price: 10.63, img: "images/stores/BigBompreco.png", href: "https://www.bompreco.com.br/cerveja-lager-heineken-600ml-0000078905498/p?idsku=2144&gclid=Cj0KCQjw166aBhDEARIsAMEyZh76UyiZanik9AvtgiLo4wjaUILGWnbsDpUnXKaiIqSV6croRh5vL2QaAiOiEALw_wcB" };
 

@@ -1,3 +1,4 @@
+import { drinks } from './drinks.js'
 drinks();
 
 const ctx = document.getElementById("price-chart");
