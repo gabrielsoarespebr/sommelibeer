@@ -1,0 +1,172 @@
+/* VARIÁVEIS */
+
+:root {
+    --orange: #F9874E;
+    --blue: #373A87;
+    --black: #141D34;
+    --lightgray: #edeae9;
+    --darkgray: #8B8988;
+    --font-Khand: 'Khand', sans-serif;
+    --font-Gothic: 'League Gothic', sans-serif;
+}
+
+/* GERAL */
+.arrow-right,
+.arrow-left {
+    width: 10%;
+    height: 10%;
+}
+
+.seta {
+    text-align: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-Khand);
+    font-size: 1.3rem;
+}
+
+/* MENU */
+.menu-bg {
+    background-image: linear-gradient(to bottom, var(--blue), var(--black));
+    height: 6rem;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.menu__logo a {
+    text-decoration: none;
+    display: flex;
+    margin-left: 3rem;
+}
+
+.logotipo-image {
+    height: 5rem;
+    filter: drop-shadow(.05rem .05rem .08rem #141D34);
+}
+
+.logotipo-text {
+    font-size: 4rem;
+    font-weight: 500;
+    color: white;
+    -webkit-text-stroke: 0.1rem var(--black);
+    text-shadow: .1rem .1rem .2rem #141D34;
+    margin-left: 1rem;
+}
+
+.orange-text {
+    color: var(--orange);
+}
+
+#search-bar,
+#search-bar:active,
+#search-bar:hover {
+    background-color: var(--lightgray);
+    color: var(--darkgray);
+    font-family: var(--font-Khand);
+    font-weight: 500;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    padding: .5rem;
+    width: 20rem;
+    border-style: none;
+}
+
+.fa-magnifying-glass {
+    color: var(--darkgray);
+    margin-left: -2rem;
+    width: 5px;
+    height: 5px;
+    cursor: pointer;
+}
+
+.search-button {
+    display: none;
+}
+
+.menu-login {
+    font-size: 1.6rem;
+    color: white;
+    text-decoration: none;
+    margin-right: 4rem;
+}
+
+/* FORMULÁRIO */
+
+form[name="register"] {
+    margin-top: 10vh;
+    margin-bottom: 50vh;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form div{
+    margin: 10px;
+}
+
+input+label{
+    margin: 30px;
+}
+
+form label,
+.other-options a {
+    font-size: 1.6rem;
+    text-decoration: none;
+    margin-right: 1rem;
+    font-weight: 500;
+    color: var(--blue);
+}
+
+form input {
+    font-size: 1.3rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.other-options a {
+    color: var(--darkgray);
+}
+
+input[type="submit"], #user-photo-preview label {
+    background-color: var(--blue);
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: var(--font-Khand);
+    color: white;
+    padding: .2rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border-color: var(--blue);
+}
+
+#user-photo-preview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#user-photo-preview input {
+    display: none;
+}
+
+#user-photo {
+    object-fit: cover;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--blue);
+    margin-bottom: 10px;
+}

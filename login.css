@@ -98,7 +98,7 @@ body{
 
 /* FORMULÁRIO */
 
-form[name="cadastro"]{
+form[name="register"]{
     margin-top: 20vh;
     height: 200px;
     display: flex;
