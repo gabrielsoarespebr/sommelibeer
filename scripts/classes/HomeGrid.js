@@ -75,7 +75,7 @@ export class HomeGrid {
                 '</div>'+
                 '<fieldset class="comment">'+
                 '<legend>Avaliação em destaque</legend>'+
-                '<p>'+ this.drinkList[i].comment+'</p>'+
+                '<p>'/*+ this.drinkList[i].comment*/+'</p>'+
                 '</fieldset>'+
                 '</div>'
             }
