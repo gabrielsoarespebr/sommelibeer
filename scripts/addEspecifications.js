@@ -1,17 +1,6 @@
 import { drinks } from './drinks.js'
 let drinkList = drinks()
-let id = (window.location.href)
-let newId = ""
-let cond = false
-for (let i = 0; i < id.length; i++){
-    if (cond){
-        newId += id[i]
-    }
-    if (id[i] == "?"){
-        cond = true
-    }
-}
-id = newId
+let id = window.location.href.split("?")[1]
 let bebida
 for (let i = 0; i < drinkList.length; i++){
     if (drinkList[i].id == id){
@@ -27,7 +16,7 @@ bebida.img);
 
 var x = document.querySelector("#price");
 x.textContent = "R$" + 
-bebida.price.toFixed(2);
+bebida.price.toFixed(2).replace(".", ",");
 
 var x = document.querySelector(".product-name");
 x.textContent = 

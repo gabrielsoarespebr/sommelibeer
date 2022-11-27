@@ -37,6 +37,7 @@ body {
 }
 
 .menu__logo a {
+    user-select: none;
     text-decoration: none;
     display: flex;
     margin-left: 3rem;
@@ -87,6 +88,7 @@ body {
 }
 
 .menu-login {
+    user-select: none;
     font-size: 1.6rem;
     color: white;
     text-decoration: none;
@@ -128,9 +130,14 @@ body {
     width: 20vw;
 }
 
+.product-div {
+}
+
 .product-image {
-    max-height: 60vh;
-    margin: 30px auto;
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: contain;
+    margin: 0px auto;
 }
 
 .price {
@@ -188,6 +195,7 @@ body {
     background-color: var(--blue);
     color: white;
     margin: .2rem;
+    padding: 0px 10px 0px 10px;
     width: 270px;
 }
 
@@ -195,6 +203,7 @@ body {
     background-color: var(--lightgray);
     color: var(--blue);
     margin: .2rem;
+    padding: 0px 10px 0px 10px;
     width: 320px;
 }
 
@@ -226,6 +235,7 @@ body {
 
 #compare-product-cards::-webkit-scrollbar {
     height: 12px;
+
     /* width of the entire scrollbar */
 }
 
@@ -249,9 +259,11 @@ body {
     margin-left: 15px;
 }
 
+
 #buy-now-text,
 #price-history-text,
 #comment-text {
+    user-select: none;
     margin-top: 5px;
     padding: 5px;
     color: white;
@@ -311,6 +323,7 @@ body {
     user-select: none;
     background-color: rgb(223, 223, 223);
     text-align: center;
+    width: 350px;
 }
 
 .hidden {
@@ -336,18 +349,30 @@ body {
     margin: 20px 0;
     color: var(--blue);
     display: flex;
-    width: 70vw;
+    width: 75vw;
     overflow: auto;
     border-radius: 0;
-    width: 300px;
+    width: 325px;
+    
+}
+
+.no-result-compare{
+    width: 100%;
+    text-align: center;
 }
 
 .compare-product-card {
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+    color: var(--blue);
+    text-decoration: none;
+    margin-left: 10px;
     min-width: 150px;
-    height: 85%;
+    height: 200px;
+    margin-bottom: 35px;
     text-align: center;
     border-radius: 5px;
     padding: 10px;
+    background-color: #edeae9;
 }
 
 .compare-product-card:hover {

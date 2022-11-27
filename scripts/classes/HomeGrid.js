@@ -65,19 +65,23 @@ export class HomeGrid {
         {
             for (let i=this.start; i<=this.end; i++)
             {
-                this.page.innerHTML += '<div class="product" id="product-'+this.drinkList[i].id+'" data-name="p-'+(i+1)+'">'+
+                let name
+                if (this.drinkList[i].name.length <= 52){
+                    name = this.drinkList[i].name
+                }
+                else {
+                    name = (this.drinkList[i].name).substring(0, 50) + '...'
+                }
+
+                this.page.innerHTML += '<a href="product.html?'+this.drinkList[i].id+'" hreflang="pt-br" rel="next" target="_self" class="product" '+this.drinkList[i].id+'" data-name="p-'+(i+1)+'">'+
                 '<img src='+this.drinkList[i].img+' alt="Produto 1">'+
-                '<h3>'+ this.drinkList[i].name + '</h3>'+ 
+                '<h3>'+ /*this.drinkList[i].name*/name+'</h3>'+ 
                 '<p class="alcohol-number">Teor alcoólico: '+this.drinkList[i].alcoholcontent.toFixed(1)+'</p>'+
                 '<div class="price-rating">'+
                 '<span class="price">R$'+ this.drinkList[i].price.toFixed(2).replace(".", ",")+'</span>'+
                 '<span class="rating">'+ this.drinkList[i].rating.toFixed(1)+'</span>'+ 
                 '</div>'+
-                '<fieldset class="comment">'+
-                '<legend>Avaliação em destaque</legend>'+
-                '<p>'/*+ this.drinkList[i].comment*/+'</p>'+
-                '</fieldset>'+
-                '</div>'
+                '</a>'
             }
             defineGridFlow(this.start, this.end, this.step, this.drinkList)
         }

@@ -7,12 +7,7 @@ function addListeners(){
     selectBrand.addEventListener("change", function(){filter.selectAllBrand(checkBrands)})
     
     cleanAllBtn.addEventListener('click', function(){addFilter('cleanAll')})
-
-    const product = document.querySelectorAll('.product')
-
-    for (let i = 0; i < product.length; i++){
-        product[i].addEventListener('click', function(){window.open("./product.html?"+product[i].id.split('-')[1])})
-    }
+    
     for (let indice = 0; indice < specifyFilterDisplay.length; indice++)
     {
         specifyFilterDisplay[indice].addEventListener("click", function(){filter.showMenu(specifyFilterDisplay[indice])})
