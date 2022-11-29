@@ -8,6 +8,8 @@ for (let i = 0; i < drinkList.length; i++){
     }
 }
 
+document.title = bebida.name
+
 var i = 5;
 
 var x = document.querySelector(".product-image");
