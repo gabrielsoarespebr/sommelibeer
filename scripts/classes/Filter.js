@@ -452,7 +452,12 @@ export class Filter {
                 this.result.style.display = 'none'
             }
             else {
-                this.result.innerHTML = '<p>'+this.specifiedDrinks.length+' resultados encontrados</p>'
+                if (this.specifiedDrinks.length > 1) {
+                    this.result.innerHTML = '<p>'+this.specifiedDrinks.length+' resultados encontrados</p>'
+                }
+                else {
+                    this.result.innerHTML = '<p>'+this.specifiedDrinks.length+' resultado encontrado</p>'
+                }
             }
         }
         if (!Array.isArray(id)){
