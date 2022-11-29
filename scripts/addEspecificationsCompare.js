@@ -3,13 +3,14 @@ var bebidas = drinks()
 let id = window.location.href.split('?')[1].split('-')
 let bebida1
 let bebida2
+console.log(id)
 
 for (let i = 0; i < bebidas.length; i++){
     if (bebidas[i].id == id[0]){
         bebida1 = bebidas[i] 
     }
     else if (bebidas[i].id == id[1]){
-        bebida2 = bebidas[1]
+        bebida2 = bebidas[i]
     }
 }
 
@@ -22,9 +23,9 @@ for (let i = 0; i < drinkList.length; i++) {
     x[i].setAttribute("src", drinkList[i].img);
 
     var x = document.querySelectorAll("#price");
-    x[i].textContent = "R$" + drinkList[i].price.toFixed(2);
+    x[i].textContent = "R$" + drinkList[i].price.toFixed(2).replace(".", ",");
 
-    var x = document.querySelectorAll(".product-name");
+    var x = document.querySelectorAll("#name");
     x[i].textContent = drinkList[i].name;
 
     var x = document.querySelectorAll(".rating");

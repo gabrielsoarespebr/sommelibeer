@@ -123,12 +123,18 @@ body {
 }
 
 .image-and-price-column {
+    position: relative;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
 
 .product-image {
+    height: 200px;
     max-height: 60vh;
-    margin: 10px auto;
+    margin: auto;
 }
 
 .price {
@@ -139,7 +145,7 @@ body {
 
 #price {
     font-family: var(--font-Gothic);
-    color: var(--darkgray);
+    color: var(--orange);
     font-size: 4rem;
 }
 
@@ -148,7 +154,6 @@ body {
     color: var(--darkgray);
     font-size: 1.5rem;
     font-weight: 500;
-    margin-bottom: 20px;
 }
 
 .top-row {
@@ -165,9 +170,12 @@ body {
 }
 
 .rating {
+    position: absolute;
+    top: 15px;
+    right: 15px;
     background-color: var(--blue);
     color: white;
-    font-size: 1.8rem;
+    font-size: 3rem;
     padding: .2rem .5rem .2rem .5rem;
     margin: auto;
     border-radius: 50%;
@@ -192,6 +200,7 @@ body {
 .specification-value {
     background-color: var(--lightgray);
     color: var(--blue);
+    padding: 0px 10px;
     margin: .2rem;
     width: 320px;
 }

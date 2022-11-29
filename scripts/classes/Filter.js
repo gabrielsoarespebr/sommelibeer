@@ -207,7 +207,7 @@ export class Filter {
         let total = parseFloat(((this.higherPrice - this.lowerPrice)/4).toFixed(2))
         
         let price = Math.floor(this.lowerPrice) 
-        let aumentoPrice = Math.ceil(total)  
+        let aumentoPrice = Math.floor(total)  
         for (let c = 0; c < 4; c++)
         {
             let priceList = document.querySelector("#price-list")
