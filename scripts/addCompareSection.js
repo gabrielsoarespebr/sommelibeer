@@ -46,7 +46,7 @@ searchInput.addEventListener("input", typing => {
             document.querySelectorAll(".compare-product-card").forEach(e => e.remove());
             for (let i = 0; i < drinksFilter.length; i++) 
             {
-                compareCards.innerHTML += '<a href="compare.html?'+id+'-'+drinkList[i].id+'" hreflang="pt-br" rel="next" target="_self" class="compare-product-card" id="product-'+drinksFilter[i].id+'">'+
+                compareCards.innerHTML += '<a href="compare.html?'+id+'-'+drinksFilter[i].id+'" hreflang="pt-br" rel="next" target="_self" class="compare-product-card" id="product-'+drinksFilter[i].id+'">'+
                 '<img class="compare-product-image" src="' + drinksFilter[i].img + '" alt="Produto">' +
                 '<h3 class="compare-product-name">' + drinksFilter[i].name + '</h3>' +
                 '<span class="compare-product-price">' + 'R$' + drinksFilter[i].price.toLocaleString("pt-br", {

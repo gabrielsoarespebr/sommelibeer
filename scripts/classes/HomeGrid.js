@@ -65,17 +65,13 @@ export class HomeGrid {
         {
             for (let i=this.start; i<=this.end; i++)
             {
-                let name
-                if (this.drinkList[i].name.length <= 52){
-                    name = this.drinkList[i].name
+                let name = this.drinkList[i].name+" "+this.drinkList[i].volume+"ml"
+                if (name.length > 52){
+                    name = (name).substring(0, 50) + '...'
                 }
-                else {
-                    name = (this.drinkList[i].name).substring(0, 50) + '...'
-                }
-
                 this.page.innerHTML += '<a href="product.html?'+this.drinkList[i].id+'" hreflang="pt-br" rel="next" target="_self" class="product" '+this.drinkList[i].id+'" data-name="p-'+(i+1)+'">'+
                 '<img src='+this.drinkList[i].img+' alt="Produto 1">'+
-                '<h3>'+ /*this.drinkList[i].name*/name+'</h3>'+ 
+                '<h3>'+name+'</h3>'+ 
                 '<p class="alcohol-number">Teor alcoólico: '+this.drinkList[i].alcoholcontent.toFixed(1)+'</p>'+
                 '<div class="price-rating">'+
                 '<span class="price">R$'+ this.drinkList[i].price.toFixed(2).replace(".", ",")+'</span>'+

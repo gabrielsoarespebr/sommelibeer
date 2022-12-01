@@ -363,6 +363,7 @@ body {
     color: var(--blue);
     text-decoration: none;
     margin-left: 10px;
+    max-width: 150px;
     min-width: 150px;
     height: 200px;
     margin-bottom: 35px;
