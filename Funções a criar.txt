@@ -1,0 +1,22 @@
+Database:
+	Adicionar varios preços diferentes
+Página Principal:
+	Número de produtos em cada opção
+	Remover valor adicionado de forma personalizavel
+Página Produto:
+	Criar faixa de produtos recomendados
+Página Comparação:
+	Criar faixa de produtos recomendados
+*:
+	Criar buscador
+	Criar Página análise
+	Criar Adicionar produto para análise
+
+- Criar buscador (Todas as páginas)
+- Adicionar varios preços diferentes (Database)
+- Criar grade de produtos recomendados (Produto, Comparação)
+- Remover valor adicionado de forma personalizavel (Página Principal)
+- Número de produtos em cada opção
+- Criar Página análise
+- Criar Adicionar produto para análise (Todas as páginas)
+- Criar Funções da Página análise (Página análise)
