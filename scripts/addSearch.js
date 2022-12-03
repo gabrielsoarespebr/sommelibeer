@@ -6,8 +6,9 @@ function addListeners(){
             if (searchInput.value != "")
             {
                 searchBox.style.display = 'none'
-                window.open('/index.html?search='+searchInput.value, '_self')
-                addFilter("word-"+searchInput.value)   
+                window.location.href = 'sommelibeer/index.html?search='+searchInput.value
+                /*window.open('/index.html?search='+searchInput.value, '_self')*/
+                addFilter("word-"+searchInput.value)  
             }
             
         }
