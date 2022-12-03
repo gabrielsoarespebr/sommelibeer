@@ -6,7 +6,7 @@ function addListeners(){
             if (searchInput.value != "")
             {
                 searchBox.style.display = 'none'
-                window.location.href = '/index.html?search='+searchInput.value
+                window.location.href = './index.html?search='+searchInput.value
             }
             
         }

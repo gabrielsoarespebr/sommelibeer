@@ -1,6 +1,6 @@
-import { HomeGrid } from './scripts/classes/HomeGrid.js'
-import { Filter } from "./scripts/classes/Filter.js"
-import { drinks } from './scripts/drinks.js'
+import { HomeGrid } from './classes/HomeGrid.js'
+import { Filter } from "./classes/Filter.js"
+import { drinks } from './drinks.js'
 
 function addListeners(){
     selectType.addEventListener("change", function(){filter.selectAllType(checkTypes)})
