@@ -251,7 +251,8 @@ addListeners()
 
 let url = window.location.href
 if (url.includes('search')){
-    addFilter("word-"+url.substring(40))
+    let index = url.indexOf('search') + 7
+    addFilter("word-"+url.substring(index))
 }
 
 function checkHelper(id){
