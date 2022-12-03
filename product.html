@@ -24,7 +24,8 @@
                         <div class="logotipo logotipo-text">Sommeli<span class="orange-text">beer</span></div>
                     </a>
                 </div> <!-- .menu__logo -->
-                <form class="menu__search-bar" action="#" method="GET">
+                <form class="menu__search-bar" autocomplete="off">
+                    <div id="search-box"></div>
                     <input type="text" name="search" id="search-bar" placeholder="Procurando algo específico?">
                     <button for="search" class="search-button" type="submit"></button><i id="search"
                         class="fa-solid fa-magnifying-glass"></i>
@@ -159,6 +160,8 @@
     <script type="module" src="scripts/addCommentSection.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="scripts/addPriceHistory.js"></script>
+    <script type="module" src="scripts/addSearch.js"></script>
+
 </body>
 
 </html>

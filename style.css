@@ -88,6 +88,72 @@ header {
     border-style: none;
 }
 
+.menu__search-bar {
+    position: relative;
+}
+
+#search-box {
+    user-select: none;
+    position: absolute;
+    left: 4px;
+    top: 101.8%;
+    width: 104%;
+    margin: auto;
+    display: none;
+    min-height: 262px;
+    max-height: 262px;
+    overflow-y: scroll;
+    scrollbar-color: var(--blue);
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3);
+    background-color: rgb(230, 230, 230);
+    border-radius: 5px 5px 10px 10px;
+}
+
+#search-box::-webkit-scrollbar { 
+    width: 15px;
+}
+#search-box::-webkit-scrollbar-track{
+    background-color: rgb(219, 219, 219);
+}
+#search-box::-webkit-scrollbar-thumb{
+    background-color: var(--blue-darker);
+}
+.search-product {
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    border-radius: 5px;
+    border-bottom: 1px solid rgb(172, 170, 170);
+}
+
+.search-product:hover{
+    background-color: var(--blue);
+    color: aliceblue;
+}
+
+.search-product-img {
+    box-shadow: 0px 0px 2px rgb(230, 230, 230);
+    height: 50px;
+    padding: 3px;
+}
+
+.search-product-title {
+    position: absolute;
+    top: 7px;
+    margin-left: 7px;
+}
+.search-product-volume {
+    position: absolute;
+    bottom: 15px;
+    margin-left: 7px;
+}
+.search-product-price {
+    color: var(--orange);
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    margin-left: 7px;
+}
 .fa-magnifying-glass{
     color: var(--darkgray);
     margin-left: -2rem;

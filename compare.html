@@ -24,7 +24,8 @@
                         <div class="logotipo logotipo-text">Sommeli<span class="orange-text">beer</span></div>
                     </a>
                 </div> <!-- .menu__logo -->
-                <form class="menu__search-bar" action="#" method="GET">
+                <form class="menu__search-bar" autocomplete="off">
+                    <div id="search-box"></div>
                     <input type="text" name="search" id="search-bar" placeholder="Procurando algo específico?">
                     <button for="search" class="search-button" type="submit"></button><i id="search"
                         class="fa-solid fa-magnifying-glass"></i>
@@ -48,8 +49,8 @@
 
             <h1></h1>
 
-            <h1 class="name-item" id="name">Nome 1 dbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbf</h1>
-            <h1 class="name-item" id="name">Nome 2</h1>
+            <h1 class="name-item" id="name"></h1>
+            <h1 class="name-item" id="name"></h1>
             <div></div>
             
             <div class="image-and-price-column">
@@ -127,6 +128,7 @@
     <script src="https://kit.fontawesome.com/34690a427f.js" crossorigin="anonymous"></script>
     <script type="module" src="scripts/drinks.js"></script>
     <script type="module" src="scripts/addEspecificationsCompare.js"></script>
+    <script type="module" src="scripts/addSearch.js"></script>
 </body>
 
 </html>

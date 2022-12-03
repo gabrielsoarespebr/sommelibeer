@@ -17,6 +17,7 @@ export class Filter {
         this.filterStar = [0, 5]
         this.filterTypes = getTypes()
         this.filterBrands = getBrands()
+        this.filterWord = ''
 
         this.infoSelect = document.querySelectorAll('.info-select') 
         this.infoPrice = document.querySelector('#price-info')
@@ -318,6 +319,10 @@ export class Filter {
         if (id == "cleanAll"){
             this.cleanAllFilters()
         }
+        else if (id.split('-')[0] == 'word'){
+            this.cleanAllFilters()
+            this.filterWord = id.split('-')[1]
+        }
         else if (Array.isArray(id)){
             if (id[1] == "type"){
                 this.filterTypes = id[0].slice(0)
@@ -409,7 +414,10 @@ export class Filter {
                         if (this.defaultDrinks[cont].rating >= this.filterStar[0] && this.defaultDrinks[cont].rating <= this.filterTeor[1]){
                             if (this.filterTypes.includes(this.defaultDrinks[cont].type)){
                                 if (this.filterBrands.includes(this.defaultDrinks[cont].brand)){
-                                    this.specifiedDrinks.push(this.defaultDrinks[cont])
+                                    if ((this.defaultDrinks[cont].name.toLowerCase()).includes(this.filterWord.toLowerCase())){
+                                        this.specifiedDrinks.push(this.defaultDrinks[cont])
+                                    }
+                                    
                                 }
                             }
                         }
