@@ -135,15 +135,6 @@ export class Filter {
         for (let i = 0; i < this.infoSelect.length; i++){
             this.infoSelect[i].style.display = 'none'
         }
-        /*this.cleanIndividual = {
-            price(){this.filterPrice = [0, 10000]
-            console.log(this.filterPrice)},
-            star(){console.log('avaliation')},
-            ml(){console.log('ml')},
-            type(){console.log('type')},
-            brand(){console.log('brand')},
-            teor(){console.log('alcohol')}
-        }*/
 
         this.cleanFilterBtn = document.querySelector('#button-clean-filter')
         this.cleanFilterBtn.style.display = 'none'

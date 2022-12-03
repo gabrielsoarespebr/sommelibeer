@@ -3,7 +3,6 @@ var bebidas = drinks()
 let id = window.location.href.split('?')[1].split('-')
 let bebida1
 let bebida2
-console.log(id)
 
 for (let i = 0; i < bebidas.length; i++){
     if (bebidas[i].id == id[0]){

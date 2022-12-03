@@ -56,6 +56,7 @@ export class HomeGrid {
 
     orderGrid()
     {
+        scroll(0, 0)
         this.page.innerHTML = ""
         if (this.end == -1)
         {
