@@ -80,8 +80,8 @@ export class HomeGrid {
                 '</div>'+
                 '</a>'
             }
-            defineGridFlow(this.start, this.end, this.step, this.drinkList)
         }
+        defineGridFlow(this.start, this.end, this.step, this.drinkList)
     }
 
     goNext()
