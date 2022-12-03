@@ -170,8 +170,10 @@ function addListeners(){
             event.preventDefault();
             if (searchInput.value != "")
             {
+                /*searchBox.style.display = 'none'
+                addFilter("word-"+searchInput.value)  */
                 searchBox.style.display = 'none'
-                addFilter("word-"+searchInput.value)   
+                window.location.href = './index.html?search='+searchInput.value 
             }
             
         }

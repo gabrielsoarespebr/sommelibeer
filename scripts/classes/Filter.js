@@ -438,6 +438,11 @@ export class Filter {
         const moneyInput = document.querySelectorAll(".input-money")
         moneyInput[0].value = ''
         moneyInput[1].value = ''
+        if (id.includes('word')){
+            let resultado = document.querySelector(".search-info")
+            resultado.style.display = 'block'
+            resultado.innerText = this.filterWord
+        }
         if (id == 'cleanAll'){
             this.cleanFilterBtn.style.display = 'none'
         }
