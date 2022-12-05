@@ -310,10 +310,6 @@ export class Filter {
         if (id == "cleanAll"){
             this.cleanAllFilters()
         }
-        else if (id.split('-')[0] == 'word'){
-            this.cleanAllFilters()
-            this.filterWord = id.split('-')[1]
-        }
         else if (Array.isArray(id)){
             if (id[1] == "type"){
                 this.filterTypes = id[0].slice(0)
@@ -340,6 +336,10 @@ export class Filter {
                     this.infoBrands.style.display = 'none'
                 }
             }
+        }
+        else if (id.split('-')[0] == 'word'){
+            this.cleanAllFilters()
+            this.filterWord = id.split('-')[1]
         }
         else if (id.split('-')[0] == "thrash"){
             if (id.split('-')[1] == "price"){

@@ -192,6 +192,7 @@ function addListeners(){
         }})
     searchInput.addEventListener("input", function(){
         searchBox.innerHTML = ''
+        let condEmpty = true
         let tamanho = searchInput.value.length - 1
         if (searchInput.value == ' '){
             searchInput.value = ''
@@ -209,7 +210,11 @@ function addListeners(){
                 if (name.includes(searchInput.value.toLowerCase())){
                     searchBox.style.display = 'block'
                     searchBox.innerHTML += '<a href="product.html?'+drinks()[i].id+'" hreflang="pt-br" rel="next" target="_self"><div class="search-product">'+'<img class="search-product-img" src="'+drinks()[i].img+'"'+'alt="'+drinks()[i].name+'">'+'<span class="search-product-title">'+drinks()[i].name+'</span>'+'<span class="search-product-volume">'+drinks()[i].volume+'ML</span>'+'<span class="search-product-price">R$'+drinks()[i].price.toFixed(2).replace(".", ",")+'</span>'+'</div></a>'
+                    condEmpty = false
                 }
+            }
+            if (condEmpty){
+                searchBox.style.display = 'none'
             }
 
         }

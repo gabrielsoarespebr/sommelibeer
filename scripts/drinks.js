@@ -64,7 +64,7 @@ export function drinks() //Lista de bebidas
 "https://www.clubeextra.com.br/produto/370496/cerveja-amstel-puro-malte-latao-473ml",
 "https://mercado.carrefour.com.br/cerveja-amstel-puro-malte-lata-350-ml-9750860/p",]};
 
-    let drink0012 = {id: '12', name:"Itaipava 100% Malte", price:2.29 , rating: 2.7, comment: "A melhor cerveja do grupo Petrópolis. Tem um bom custo-benefício pelo preço comprado", img:"images/drinks/itaipava_puro_malte.png" , brand: "Itaipava", volume:269 , type: "American Larger", alcoholcontent: 4.8, ibu: 9.5, energyvalue: 101.15, carbohydrates: 9, allergens: "Contém cevada", ingredients:"água, lúpulo e maltes provenientes da cevada." , harmonization: " carnes vermelhas, aves, peixes, castanhas,  culinária japonesa e comida de boteco.",
+    let drink0012 = {id: '12', name:"Itaipava 100% Malte", price:2.29 , rating: 2.7, comment: "A melhor cerveja do grupo Petrópolis. Tem um bom custo-benefício pelo preço comprado", img:"images/drinks/itaipava_puro_malte.png" , brand: "Itaipava", volume:269 , type: "American Lager", alcoholcontent: 4.8, ibu: 9.5, energyvalue: 101.15, carbohydrates: 9, allergens: "Contém cevada", ingredients:"água, lúpulo e maltes provenientes da cevada." , harmonization: " carnes vermelhas, aves, peixes, castanhas,  culinária japonesa e comida de boteco.",
     links: ["https://www.paodeacucar.com/produto/811049/cerveja-itaipava-puro-malte-lata-269ml",
 "https://www.americanas.com.br/produto/4946646953?pfm_carac=Bebidas%20do%20Belly&pfm_page=seller&pfm_pos=grid&pfm_type=vit_product_grid&sellerId=23356004000102",
 "https://www.clubeextra.com.br/produto/860283/cerveja-puro-malte-itaipava-lata-269ml"]};
