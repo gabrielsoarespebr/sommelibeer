@@ -25,6 +25,7 @@ O projeto foi desenvolvido por estudantes do IFPE para a segunda etapa da Resid�
 O Squad 16, desenvolvedor do projeto, é formado pelos estudantes Gabriel Soares, Maurício Valentim, Milena Thaísa e Rebeca Jamilly, contando com a orientação de Felipe Santana, da XP e Rodrigo Higa, da Accenture.
 
 - Link do projeto no github: https://github.com/gabrielsoarespebr/sommelibeer
+- Link do site: https://gabrielsoarespebr.github.io/sommelibeer/
 ## Autores
 
 - [@gabrielsoarespebr](https://github.com/gabrielsoarespebr)
