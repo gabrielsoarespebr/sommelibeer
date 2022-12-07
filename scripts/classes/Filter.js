@@ -419,13 +419,19 @@ export class Filter {
         
         for (let cont = 0; cont < this.checkTypes.length; cont ++){
             if (this.filterTypes.includes(this.checkTypes[cont].id)){
-                this.checkTypes[cont].checked = 'true'
+                this.checkTypes[cont].checked = true
+            }
+            else {
+                this.checkTypes[cont].checked = false
             }
         }
 
         for (let cont = 0; cont < this.checkBrands.length; cont ++){
             if (this.filterBrands.includes(this.checkBrands[cont].id)){
-                this.checkBrands[cont].checked = 'true'
+                this.checkBrands[cont].checked = true
+            }
+            else {
+                this.checkBrands[cont].checked = false
             }
         }
         this.checkAllTest('type')

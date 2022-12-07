@@ -77,11 +77,12 @@ body {
 }
 
 .fa-magnifying-glass {
-    color: var(--darkgray);
+    /*color: var(--darkgray);
+    cursor: pointer;*/
+    color: #EDEAE9;
     margin-left: -2rem;
     width: 5px;
     height: 5px;
-    cursor: pointer;
 }
 
 .search-button {
@@ -269,9 +270,12 @@ body {
     border-bottom: 1px solid rgb(172, 170, 170);
 }
 
-.search-product:hover{
-    background-color: var(--blue);
+.search-product:hover .search-product-title,
+.search-product:hover .search-product-volume{
     color: aliceblue;
+}
+.search-product:hover {
+    background-color: var(--blue);
 }
 
 .search-product-img {
@@ -280,14 +284,17 @@ body {
     padding: 3px;
 }
 
+
 .search-product-title {
     position: absolute;
     top: 7px;
+    color: var(--blue);
     margin-left: 7px;
 }
 .search-product-volume {
     position: absolute;
     bottom: 15px;
+    color: var(--blue);
     margin-left: 7px;
 }
 .search-product-price {
